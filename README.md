@@ -1,83 +1,89 @@
-🌌 Kozmik Bahçe
-Kozmik Bahçe, ilişkiden beklentilerini haritalandıran, sana özel ilişki arketibini hesaplayan ve bunu estetik, paylaşılabilir bir kozmik postere dönüştüren tarayıcı tabanlı bir web uygulamasıdır.
+# 🌌 Kozmik Bahçe
 
-🔗 Canlı Demo: Kozmik Bahçe'yi Keşfet
+**Kozmik Bahçe**, ilişkiden beklentilerini haritalandıran, sana özel ilişki arketibini hesaplayan ve bunu estetik, paylaşılabilir bir kozmik postere dönüştüren tarayıcı tabanlı bir web uygulamasıdır.
 
-✨ Özellikler
-Çift Modlu Keşif: İstersen 10 soruluk hızlı mod, istersen 28 detaylı sorudan oluşan derin mod.
+🔗 **Canlı Demo:** [Kozmik Bahçe'yi Keşfet](https://tahabastug-arch.github.io/kozmik-bahce/)  
+🏺 **Kardeş Proje / Keşfet:** [Arzu Kavanozu'nu İncele](https://tahabastug-arch.github.io/arzu-kavanozu/)
 
-Kozmik Jarlar & Floralar: Seçtiğin puanlara ve sınırlara göre dinamik olarak büyüyen bitki/çiçek ve nesne görselleştirmeleri (Kara delikler, kuyruklu yıldızlar, süpernovalar).
+---
 
-Gelişmiş Arketip Motoru: Yanıtlarına göre seni galaktik kaşiften köklü ekosistem mimarına kadar farklı arketip ve alt odaklarla eşleştirir.
+## ✨ Özellikler
 
-Kozmik Çarpışma: Özel link üreterek partnerinle uyumunu test etme ve ortak kriz/süreç alanlarını görme imkânı.
+- **Çift Modlu Keşif:** İstersen 10 soruluk hızlı mod, istersen 28 detaylı sorudan oluşan derin mod.
+- **Kozmik Jarlar & Floralar:** Seçtiğin puanlara ve sınırlara göre dinamik olarak büyüyen bitki/çiçek ve nesne görselleştirmeleri (Kara delikler, kuyruklu yıldızlar, süpernovalar).
+- **Gelişmiş Arketip Motoru:** Yanıtlarına göre seni galaktik kaşiften köklü ekosistem mimarına kadar farklı arketip ve alt odaklarla eşleştirir.
+- **Kozmik Çarpışma:** Özel link üreterek partnerinle uyumunu test etme ve ortak kriz/süreç alanlarını görme imkânı.
+- **Poster ve Hikaye İndirme:** Oluşan evreni yüksek çözünürlüklü PNG poster veya Instagram Hikayesi (Story) formatında indirme.
+- **Tamamen Yerel Depolama:** Tüm veriler yalnızca tarayıcında (`localStorage`) kalır.
 
-Poster ve Hikaye İndirme: Oluşan evreni yüksek çözünürlüklü PNG poster veya Instagram Hikayesi (Story) formatında indirme.
+---
 
-Tamamen Yerel Depolama: Tüm veriler yalnızca tarayıcında (localStorage) kalır.
+## 🚀 Teknolojiler
 
-🚀 Teknolojiler
-HTML5 / CSS3
+- HTML5 / CSS3
+- Vanilla JavaScript (ES6+)
+- HTML5 Canvas API (Görselleştirme ve Poster Motoru)
+- Browser Local Storage API
 
-Vanilla JavaScript (ES6+)
+---
 
-HTML5 Canvas API (Görselleştirme ve Poster Motoru)
+## 🔒 Gizlilik
 
-Browser Local Storage API
+Uygulama, kullanıcı yanıtlarını harici bir sunucuya göndermez; tüm veriler tarayıcının yerel depolama alanında (`localStorage`) saklanır. Dışa aktarılan görseller kişisel yanıtlar içerebilir.
 
-🔒 Gizlilik
-Uygulama, kullanıcı yanıtlarını harici bir sunucuya göndermez; tüm veriler tarayıcının yerel depolama alanında (localStorage) saklanır. Dışa aktarılan görseller kişisel yanıtlar içerebilir.
+---
 
-👨‍💻 Geliştirici
-Taha BAŞTUĞ
+## 👨‍💻 Geliştirici
 
-Instagram: @_tahabastug
+**Taha BAŞTUĞ**
 
-X: @TahaBastug35_5
+- Instagram: [@_tahabastug](https://www.instagram.com/_tahabastug/)
+- X: [@TahaBastug35_5](https://x.com/TahaBastug35_5)
+- Diğer Projem: [Arzu Kavanozu](https://tahabastug-arch.github.io/arzu-kavanozu/)
 
-Diğer Projem: Arzu Kavanozu
+---
 
-📚 Kaynak Proje ve Atıf
-Bu çalışma, Kink Jars — LockedTony projesinden ilham alınarak geliştirilmiştir.
+## 📚 Kaynak Proje ve Atıf
 
-🇬🇧 English
-Kozmik Bahçe is a browser-based application that lets you map your relationship expectations, discover your unique relationship archetype, and export your personal cosmic universe as a shareable poster.
+Bu çalışma, [Kink Jars — LockedTony](https://github.com/LockedTony/kink-jars) projesinden ilham alınarak geliştirilmiştir.
 
-🔗 Live Demo: Open Kozmik Bahçe
+---
 
-Features
-Dual-Mode Exploration: Choose between a quick 10-question mode or a comprehensive 28-question deep mode.
+# 🇬🇧 English
 
-Cosmic Jars & Flora: Dynamic plant and celestial object visualizer based on your ratings and boundaries (Black holes, comets, supernovas).
+**Kozmik Bahçe** is a browser-based application that lets you map your relationship expectations, discover your unique relationship archetype, and export your personal cosmic universe as a shareable poster.
 
-Advanced Archetype Engine: Analyzes your responses to match you with specific relationship archetypes and core sub-focuses.
+🔗 **Live Demo:** [Open Kozmik Bahçe](https://tahabastug-arch.github.io/kozmik-bahce/)  
+🏺 **Sister Project:** [Explore Arzu Kavanozu](https://tahabastug-arch.github.io/arzu-kavanozu/)
 
-Cosmic Clash: Generate custom links to compare your universe with a partner and discover harmony insights.
+## Features
 
-Poster & Story Export: Save your universe as a high-resolution PNG poster or Instagram Story format.
+- **Dual-Mode Exploration:** Choose between a quick 10-question mode or a comprehensive 28-question deep mode.
+- **Cosmic Jars & Flora:** Dynamic plant and celestial object visualizer based on your ratings and boundaries (Black holes, comets, supernovas).
+- **Advanced Archetype Engine:** Analyzes your responses to match you with specific relationship archetypes and core sub-focuses.
+- **Cosmic Clash:** Generate custom links to compare your universe with a partner and discover harmony insights.
+- **Poster & Story Export:** Save your universe as a high-resolution PNG poster or Instagram Story format.
+- **Local Storage Only:** All data stays securely in your browser's `localStorage`.
 
-Local Storage Only: All data stays securely in your browser's localStorage.
+## Technologies
 
-Technologies
-HTML5 / CSS3
+- HTML5 / CSS3
+- Vanilla JavaScript (ES6+)
+- HTML5 Canvas API
+- Browser Local Storage API
 
-Vanilla JavaScript (ES6+)
+## Privacy
 
-HTML5 Canvas API
+The application does not send user responses to an external server; all data is stored locally using `localStorage`.
 
-Browser Local Storage API
+## Developer
 
-Privacy
-The application does not send user responses to an external server; all data is stored locally using localStorage.
+**Taha BAŞTUĞ**
 
-Developer
-Taha BAŞTUĞ
+- Instagram: [@_tahabastug](https://www.instagram.com/_tahabastug/)
+- X: [@TahaBastug35_5](https://x.com/TahaBastug35_5)
+- Other Project: [Arzu Kavanozu](https://tahabastug-arch.github.io/arzu-kavanozu/)
 
-Instagram: @_tahabastug
+## Attribution
 
-X: @TahaBastug35_5
-
-Other Project: Arzu Kavanozu
-
-Attribution
-This project is inspired by and adapted from Kink Jars — LockedTony.
+This project is inspired by and adapted from [Kink Jars — LockedTony](https://github.com/LockedTony/kink-jars).
