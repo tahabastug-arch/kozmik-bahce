@@ -1,0 +1,1843 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kozmik Bahçe — İlişki Evreni & Arketip</title>
+<meta name="description" content="Kozmik Bahçe — ilişkiden beklentilerini seç, kozmik floranı büyüt, arketipini gör ve evreninin posterini kaydet.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%234895ef'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&display=block">
+<style>
+  :root{
+    --c:#4895ef;--on-c:#fff;--ink:#f1ecf9;--bg:#070a12;--card:#101726;--muted:#9488b1;--line:#1c2942;--x:#f72585;--q:#4361ee;
+    --font-display:"Syne","Trebuchet MS","Segoe UI","Arial Black",sans-serif;
+    --font-body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --font-serif:"Fraunces",Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;font-synthesis:none}
+  .fonts-loading h1,.fonts-loading h2,.fonts-loading .step,.fonts-loading .big,.fonts-loading .onboard-title{opacity:0}
+  h1,h2,.step,.big,.onboard-title{transition:opacity .3s}
+  body{margin:0;color:var(--ink);font-family:var(--font-body);font-size:18px;line-height:1.45;padding-bottom:110px;min-height:100vh;
+    background:radial-gradient(1200px 800px at 20% -10%, rgba(72,149,239,.12), transparent 60%),
+      radial-gradient(900px 600px at 90% 10%, rgba(247,37,133,.08), transparent 55%),
+      radial-gradient(1400px 900px at 50% 120%, rgba(157,78,221,.10), transparent 60%),varbg;
+    background-attachment:fixed;
+    background-color:var(--bg)}
+  body,.panel,.bar,.sheet{transition:background-color .5s ease,border-color .5s ease,color .5s ease}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+    background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode:overlay}
+  @media(min-width:960px){body{padding-bottom:40px}}
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 16px;position:relative;z-index:1}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track{background:transparent}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.10);border-radius:10px;border:2px solid transparent;background-clip:padding-box}
+  ::selection{background:color-mix(in oklab,var(--c),transparent 60%);color:#fff}
+  :focus-visible{outline:2px solid var(--c);outline-offset:3px;box-shadow:0 0 0 4px color-mix(in oklab,var(--c),transparent 70%);border-radius:12px}
+  .progress-rail{position:fixed;top:0;left:0;right:0;height:2px;background:rgba(255,255,255,.06);z-index:20}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--c),color-mix(in oklab,var(--c),white 30%));box-shadow:0 0 12px var(--c);transition:width .4s cubic-bezier(.2,.8,.2,1);width:0%}
+  header{margin-bottom:22px;color:#f1ecf9}
+  header h1{font-family:var(--font-display);font-weight:800;font-size:clamp(44px,9vw,72px);margin:0;line-height:.95;letter-spacing:-.02em}
+  header h1 span{background:linear-gradient(180deg,#fff 0%,#cfd8f5 45%,var(--c) 100%);background-size:100% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:hueBreathe 8s ease-in-out infinite}
+  @keyframes hueBreathe{0%,100%{background-position:0 0}50%{background-position:0 100%}}
+  header p{margin:14px 0 0;color:var(--muted);max-width:720px;font-size:17px;line-height:1.55}
+  .legend{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-wrap:wrap;gap:10px 20px;font-size:14px;color:var(--muted)}
+  .legend li{display:flex;gap:8px;align-items:center}
+  .legend .lg-icon{width:20px;height:20px;color:#fff;opacity:.8;display:inline-flex}
+  .header-progress{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:7px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:999px;font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--muted)}
+  .header-progress[hidden]{display:none}
+  .header-progress .hp-dot{width:6px;height:6px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);transition:background .3s,box-shadow .3s}
+  .header-progress.complete .hp-dot{background:#4ade80;box-shadow:0 0 10px #4ade80}
+  .header-progress.complete{color:#a7f3d0;border-color:rgba(74,222,128,.4);background:rgba(74,222,128,.08)}
+  .header-progress .hp-mode{font-size:10px;opacity:.6;letter-spacing:.12em}
+  .header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px 20px;flex-wrap:wrap}
+  .social{display:flex;gap:10px;flex-wrap:wrap}
+  .social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.10);border-radius:50%;background:rgba(255,255,255,.02);color:#f1ecf9;text-decoration:none;transition:background .15s,border-color .15s,transform .08s;}
+  .social a:hover{background:rgba(72,149,239,.10);border-color:var(--c);transform:scale(1.05)}
+  .social a svg{width:20px;height:20px;flex-shrink:0;display:block}
+  .layout{display:grid;gap:24px}
+  @media(min-width:960px){.layout{grid-template-columns:minmax(0,1fr) 430px}.side{position:sticky;top:20px;align-self:start}}
+  .panel{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0) 40%),var(--card);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:24px;margin-bottom:20px;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 20px 40px -20px rgba(0,0,0,.7),0 0 0 1px rgba(0,0,0,.3);color:#f1ecf9;position:relative;isolation:isolate;overflow:hidden}
+  .panel::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(400px 200px at 100% 0%,rgba(72,149,239,.10),transparent 70%);pointer-events:none;z-index:-1}
+  .step{display:inline-block;padding:4px 10px;font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#cbd3e6;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:999px;margin-bottom:10px}
+  h2{font-family:var(--font-display);font-weight:700;font-size:26px;margin:0 0 14px;line-height:1.15;color:#fff;letter-spacing:-.01em}
+  .hint{color:var(--muted);font-size:16px;margin:-4px 0 14px;display:block}
+  .profile-line{font-weight:600;font-size:16px;color:#fff;margin:12px 0 0;line-height:1.35}
+  .profile-line[hidden]{display:none}
+  input[type=text]{font:inherit;font-size:20px;width:100%;padding:14px 16px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(0,0,0,.25);color:#f1ecf9;transition:border-color .15s,box-shadow .15s}
+  input[type=text]:focus{border-color:var(--c);outline:none;box-shadow:0 0 0 3px color-mix(in oklab,var(--c),transparent 70%)}
+  button{font:inherit;cursor:pointer;color:#f1ecf9}
+  .picker{display:grid;gap:18px}
+  @media(min-width:620px){.picker{grid-template-columns:1fr 170px;align-items:center}}
+  .theme-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:420px;margin-bottom:14px}
+  .theme-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.02);font-weight:600;font-size:14px;text-align:left;cursor:pointer;transition:all .15s;color:var(--ink)}
+  .theme-btn:hover{border-color:var(--c);background:rgba(72,149,239,.06)}
+  .theme-btn[aria-pressed=true]{background:var(--c);color:var(--on-c);border-color:#fff;box-shadow:0 3px 0 rgba(0,0,0,.4),0 0 20px -4px var(--c)}
+  .theme-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2px rgba(255,255,255,.15),0 0 12px currentColor}
+  .theme-btn[aria-pressed=true] .theme-dot{box-shadow:0 0 0 2px #fff,0 0 18px currentColor}
+  .sliders{display:grid;gap:12px;margin-top:10px;max-width:420px}
+  .sl{display:grid;grid-template-columns:120px 1fr 40px;align-items:center;gap:10px;font-weight:600;font-size:14px;color:var(--muted);letter-spacing:-.005em}
+  .sl output{text-align:right;color:#fff;font-variant-numeric:tabular-nums}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:24px;border-radius:12px;border:1px solid rgba(255,255,255,.10);margin:0;background:rgba(0,0,0,.25)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--c);box-shadow:0 2px 6px rgba(0,0,0,.4),0 0 14px -2px var(--c)}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--c);box-shadow:0 0 14px -2px var(--c)}
+  .swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:420px;margin-top:10px}
+  .sw{aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,255,255,.06);box-shadow:0 0 0 2px var(--line),0 4px 12px -4px rgba(0,0,0,.6);padding:0;min-width:34px;transition:transform .1s,box-shadow .15s}
+  .sw:hover{transform:scale(1.06)}
+  .sw[aria-pressed=true]{box-shadow:0 0 0 3px #fff,0 0 20px -2px currentColor,0 4px 12px -4px rgba(0,0,0,.6)}
+  .preview-jars{display:flex;justify-content:center;gap:2px}
+  .preview-jars canvas{width:62px;height:101px}
+  .preview-jars canvas,.q canvas{animation:gentleSway 5s ease-in-out infinite;transform-origin:50% 85%}
+  .preview-jars canvas:nth-child(2),.q:nth-of-type(even) canvas{animation-delay:-1.2s}
+  .preview-jars canvas:nth-child(3),.q:nth-of-type(3n) canvas{animation-delay:-2.4s}
+  @keyframes gentleSway{0%,100%{transform:rotate(-0.6deg)}50%{transform:rotate(0.6deg)}}
+  .section-header{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:32px 0 10px;display:flex;align-items:center;gap:10px}
+  .section-header:first-child{padding-top:8px}
+  .section-header span{display:inline-flex;align-items:center;gap:8px}
+  .section-header svg{width:14px;height:14px}
+  .section-header::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  
+  #questions { min-height: 100px; display: block; width: 100%; }
+  .q{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:center;padding:14px 0;border-top:2px dashed var(--line);scroll-margin-top:20px;border-radius:14px;transition:background .2s,box-shadow .2s}
+  .q:first-of-type{border-top:0}
+  .section-header + .q{border-top:0}
+  .q.missing{background:linear-gradient(180deg,rgba(247,37,133,.06),transparent);outline:0;box-shadow:0 0 0 1px var(--x),0 0 32px -4px rgba(247,37,133,.5)}
+  .q canvas{width:76px;height:124px;display:block}
+  .qnum{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+  .qlabel{font-family:var(--font-display);font-weight:700;font-size:24px;line-height:1.15;margin:2px 0 10px;color:#fff;letter-spacing:-.01em}
+  .qdesc{display:inline;font-size:13px;font-weight:400;font-style:italic;color:var(--muted);line-height:1.4}
+  .scale{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-width:420px}
+  .scale button{height:52px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0));color:#f1ecf9;transition:transform .12s ease,box-shadow .12s,border-color .12s,background .12s;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 6px 12px -8px rgba(0,0,0,.6)}
+  .scale button svg{width:26px;height:26px;display:block}
+  .scale button[data-val="x"]{color:var(--x)}
+  .scale button[data-val="?"]{color:var(--q)}
+  .scale button:hover{border-color:var(--c);transform:translateY(-1px)}
+  .scale button:active{transform:scale(.94)}
+  .scale button[aria-pressed=true]{background:var(--c);background:radial-gradient(circle at 50% 30%,color-mix(in oklab,var(--c),white 30%),var(--c));color:var(--on-c);border-color:#fff;box-shadow:0 0 0 1px #fff inset,0 0 24px -4px var(--c),0 3px 0 #000;transform:translateY(1px)}
+  .scale button[data-val="x"][aria-pressed=true]{background:radial-gradient(circle at 50% 30%,#ff5ea3,#f72585);border-color:var(--x);box-shadow:0 0 0 1px #fff inset,0 0 24px -4px var(--x),0 3px 0 #000}
+  .scale button[data-val="?"][aria-pressed=true]{background:radial-gradient(circle at 50% 30%,#6f83ff,#4361ee);border-color:var(--q);box-shadow:0 0 0 1px #fff inset,0 0 24px -4px var(--q),0 3px 0 #000}
+  @media(max-width:480px){.scale{gap:5px}.scale button{height:48px}.scale button svg{width:22px;height:22px}.qdesc{font-size:12px}}
+  .subs{margin-top:14px;padding-top:14px;border-top:2px dashed var(--line)}
+  .subs[hidden]{display:none}
+  .subs-title{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:10px}
+  .subs-list{display:flex;flex-wrap:wrap;gap:8px}
+  .sub-btn{padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.02);color:#f1ecf9;font-size:14px;font-weight:600;transition:transform .08s,background .15s,border-color .15s;cursor:pointer;line-height:1.2}
+  .sub-btn:hover{border-color:var(--c);background:rgba(72,149,239,.08)}
+  .sub-btn[aria-pressed="true"]{background:var(--c);color:var(--on-c);border-color:#fff;box-shadow:0 2px 0 #000,0 0 16px -4px var(--c)}
+  .poster{display:block;max-width:100%;max-height:58vh;width:auto;height:auto;margin:0 auto;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0c111d;box-shadow:0 20px 60px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.04),0 0 40px -12px var(--c);cursor:zoom-in;transition:transform .15s,box-shadow .15s}
+  .poster:hover{transform:translateY(-1px);box-shadow:0 24px 70px -20px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.05),0 0 50px -10px var(--c)}
+  .big{display:block;width:100%;margin-top:16px;padding:18px 20px;border-radius:16px;border:2px solid #fff;background:var(--c);color:var(--on-c);font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:.01em;box-shadow:0 5px 0 #000,0 0 32px -8px var(--c);transition:transform .15s cubic-bezier(.2,.8,.2,1),box-shadow .15s,background .15s}
+  .big:hover{transform:translateY(-1px);box-shadow:0 7px 0 #000,0 0 40px -8px var(--c)}
+  .big:active{transform:translateY(3px);box-shadow:0 2px 0 #000,0 0 24px -8px var(--c)}
+  .small-links{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font-size:15px;color:var(--muted)}
+  .linkbtn{background:none;border:0;padding:4px 0;text-decoration:underline;text-underline-offset:3px;color:var(--muted);font-size:15px}
+  .linkbtn:hover{color:#fff}
+  .status{margin:12px 0 0;padding:12px 14px;border-radius:12px;background:rgba(247,37,133,.10);border:1px solid rgba(247,37,133,.4);color:#ffb3e6;font-weight:600;font-size:15px;line-height:1.35}
+  .status[hidden]{display:none}
+  .ghost{background:transparent;color:var(--ink);border:1px solid rgba(255,255,255,.15);padding:12px 20px;border-radius:14px;font-weight:700;font-size:15px;cursor:pointer;transition:all .15s}
+  .ghost:hover{border-color:var(--c);background:rgba(72,149,239,.08)}
+  .mode-cta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding:12px 16px;border-radius:14px;background:linear-gradient(90deg,rgba(72,149,239,.10),transparent);border:1px solid rgba(72,149,239,.3);font-size:14px;color:#cbd3e6}
+  .mode-cta span{flex:1}
+  .mode-cta button{background:transparent;border:1px solid var(--c);color:var(--c);padding:8px 14px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .15s}
+  .mode-cta button:hover{background:var(--c);color:var(--on-c)}
+  .clash-cta{display:grid;gap:10px;margin-top:14px}
+  .clash-cta[hidden]{display:none}
+  .clash-btn{width:100%;padding:14px 18px;border-radius:14px;border:1px solid var(--c);background:rgba(72,149,239,.12);color:#fff;font-family:var(--font-display);font-weight:700;font-size:16px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+  .clash-btn:hover{background:var(--c);box-shadow:0 0 20px -4px var(--c)}
+  .site-footer{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);text-align:center;color:var(--muted);font-size:14px;line-height:1.6}
+  .site-footer p{margin:2px 0}
+  .site-footer a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+  .site-footer a:hover{color:#fff}
+  .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(7,10,18,.72);border-top:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);z-index:5}
+  .bar-in{max-width:1180px;margin:0 auto;padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:14px}
+  .bar-in span{font-weight:600;font-size:15px;color:var(--muted);flex:1}
+  .bar .big{width:auto;margin:0;padding:12px 22px;font-size:19px;box-shadow:0 4px 0 #000,0 0 28px -8px var(--c)}
+  @media(min-width:960px){.bar{display:none}}
+  #toast{position:fixed;left:50%;top:20px;transform:translateX(-50%);background:linear-gradient(180deg,#c23a8f,#a83279);color:#fff;padding:14px 24px;border-radius:14px;font-weight:600;font-size:16px;z-index:30;box-shadow:0 6px 20px rgba(0,0,0,.5),0 0 40px -10px #f72585;max-width:calc(100% - 32px);text-align:center;pointer-events:none;opacity:0;transition:opacity .3s}
+  #toast.show{opacity:1}
+  #modal{position:fixed;inset:0;background:rgba(5,7,14,.82);display:flex;align-items:center;justify-content:center;padding:16px;z-index:10;backdrop-filter:blur(6px)}
+  #modal[hidden]{display:none}
+  .sheet{background:linear-gradient(180deg,rgba(22,30,48,.92),rgba(16,23,38,.96));color:#f1ecf9;border-radius:22px;padding:22px;max-width:520px;width:100%;max-height:92vh;overflow:auto;text-align:center;border:1px solid rgba(255,255,255,.10);box-shadow:0 40px 80px -20px rgba(0,0,0,.8);backdrop-filter:blur(20px)}
+  .sheet h3{font-family:var(--font-display);font-size:26px;font-weight:700;margin:0 0 8px;color:#fff}
+  #modalBody p{margin:0 0 12px;color:var(--muted);font-size:15px;line-height:1.55}
+  #modalBody img{width:100%;border-radius:10px;border:1px solid rgba(255,255,255,.08)}
+  .modal-actions{display:grid;gap:10px;margin:14px 0 6px}
+  .modal-actions .big{margin-top:0;font-size:19px;padding:14px 18px}
+  .reveal-stage{min-height:300px;display:grid;place-items:center}
+  .reveal-seed{width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 40px 10px var(--c),0 0 80px 30px color-mix(in oklab,var(--c),transparent 60%);animation:seedPulse .9s ease-in-out infinite}
+  @keyframes seedPulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.6);opacity:1}}
+  .reveal-archetype{animation:revealIn .8s cubic-bezier(.2,.8,.2,1) both}
+  .reveal-kicker{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .reveal-name{font-family:var(--font-display);font-size:clamp(30px,7vw,48px);line-height:1.05;letter-spacing:-.02em;background:linear-gradient(180deg,#fff,var(--c));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;margin:0 0 6px}
+  .reveal-motto{font-family:var(--font-serif);font-style:italic;font-size:17px;color:#e2d9f3;margin:0 0 14px;line-height:1.4}
+  .reveal-sub{font-size:14px;color:var(--muted);margin:0 0 6px}
+  .reveal-summary{color:#c9c0e0;font-size:15px;line-height:1.6;margin:16px 0 0;text-align:left}
+  @keyframes revealIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .poster-lightbox{position:fixed;inset:0;z-index:15;background:rgba(0,0,0,.94);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto;animation:fadeIn .25s ease both}
+  .poster-lightbox img{max-width:100%;border-radius:8px;box-shadow:0 40px 80px -20px rgba(0,0,0,.9)}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  #onboarding{position:fixed;inset:0;background:radial-gradient(1200px 800px at 50% 30%, rgba(72,149,239,.15), transparent 60%), var(--bg);display:flex;align-items:center;justify-content:center;padding:20px;z-index:40;animation:fadeIn .3s}
+  #onboarding[hidden]{display:none}
+  .onboard-sheet{max-width:520px;width:100%;text-align:center;padding:8px}
+  .onboard-step{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+  .onboard-title{font-family:var(--font-display);font-weight:800;font-size:clamp(36px,8vw,52px);line-height:1;letter-spacing:-.02em;background:linear-gradient(180deg,#fff 0%,#cfd8f5 50%,var(--c) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;margin:0 0 18px}
+  .onboard-sub{color:var(--muted);font-size:17px;line-height:1.55;margin:0 auto 32px;max-width:420px}
+  .onboard-options{display:grid;gap:12px;max-width:380px;margin:0 auto}
+  .onboard-btn{padding:18px 22px;border-radius:16px;border:2px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--ink);cursor:pointer;text-align:left;transition:all .18s;font-family:var(--font-body);display:flex;flex-direction:column;gap:4px}
+  .onboard-btn:hover{border-color:var(--c);background:rgba(72,149,239,.08);transform:translateY(-1px)}
+  .onboard-btn.primary{border-color:var(--c);background:linear-gradient(135deg,var(--c),color-mix(in oklab,var(--c),#7e3bff 40%));color:var(--on-c);box-shadow:0 8px 28px -10px var(--c)}
+  .ob-title{font-family:var(--font-display);font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .ob-sub{font-size:13px;opacity:.7}
+  .clash-banner{background:linear-gradient(135deg,rgba(247,37,133,.15),rgba(72,149,239,.15));border:1px solid rgba(247,37,133,.4);padding:14px 18px;border-radius:16px;margin-bottom:20px;text-align:left}
+  .clash-banner h3{font-family:var(--font-display);font-size:18px;color:#fff;margin:0 0 6px}
+  .clash-banner p{font-size:14px;color:var(--muted);margin:0 0 12px}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+<script>
+  document.documentElement.classList.add('fonts-loading');
+  if (document.fonts) {
+    document.fonts.ready.then(() => document.documentElement.classList.remove('fonts-loading'));
+  } else {
+    setTimeout(() => document.documentElement.classList.remove('fonts-loading'), 500);
+  }
+</script>
+</head>
+<body>
+
+<div id="onboarding" hidden>
+  <div class="onboard-sheet">
+    <div class="onboard-step">Kozmik Bahçe · Keşif</div>
+    <h1 class="onboard-title">Kendi ilişki evrenini keşfet</h1>
+    <p class="onboard-sub">İlişkiden beklentilerini seç, kozmik floranı büyüt. Sana özel arketipini ve paylaşılabilir posterini oluştur.</p>
+    <div class="onboard-options">
+      <button class="onboard-btn primary" data-mode="quick" type="button">
+        <span class="ob-title">Hızlı Keşif</span>
+        <span class="ob-sub">10 soru · ~1 dakika · anında sonuç</span>
+      </button>
+      <button class="onboard-btn" data-mode="deep" type="button">
+        <span class="ob-title">Derin Keşif</span>
+        <span class="ob-sub">28 soru · ~5 dakika · tam arketip + poster</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="wrap">
+  <header>
+    <div class="header-top">
+      <h1><span>Kozmik Bahçe</span></h1>
+      <nav class="social" aria-label="Sosyal medya bağlantıları">
+        <a href="https://tahabastug-arch.github.io/arzu-kavanozu/" target="_blank" rel="noopener noreferrer" aria-label="Arzu Kavanozu" title="Arzu Kavanozu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v3H9z"/><path d="M5 5h14v15a2 2 0 01-2 2H7a2 2 0 01-2-2V5z"/><path d="M9 10h6"/></svg>
+        </a>
+        <a href="https://www.instagram.com/_tahabastug/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" ry="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://x.com/TahaBastug35_5" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </nav>
+    </div>
+    <p>Kozmik temanı seç, ilişkiden beklentilerini yeni ölçekle puanla. <span id="pIntroIcons" style="display:inline-flex;gap:4px;vertical-align:-3px"></span> ile kesin sınırı ve keşfe açık alanları belirt. Tüm soruları yanıtladıktan sonra arketipini ve posterini kaydedebilirsin.</p>
+    <ul class="legend" id="legend" aria-label="Ölçek açıklamaları"></ul>
+    <div class="header-progress" id="headerProgress" hidden>
+      <span class="hp-dot"></span>
+      <span id="hpText">0 / 28</span>
+      <span class="hp-mode" id="hpMode"></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <main>
+      <div id="clashBannerSlot"></div>
+      
+      <section class="panel">
+        <div class="step">Adım 1</div>
+        <h2>Adın ne?</h2>
+        <p class="hint">Posterin üstündeki boş satıra yazılır. Takma ad olabilir; boş bırakabilirsin.</p>
+        <input type="text" id="name" maxlength="24" autocomplete="off" placeholder="Adın">
+      </section>
+
+      <section class="panel">
+        <div class="step">Adım 2</div>
+        <h2>Kozmik Atmosfer ve Çekirdek Rengi</h2>
+        <div class="picker">
+          <div>
+            <div class="theme-grid" id="themeGrid" aria-label="Kozmik Temalar"></div>
+            <div class="sliders">
+              <label class="sl">Doku Yoğunluğu<input type="range" id="texSlider" min="10" max="80" step="5"><output id="texVal"></output></label>
+            </div>
+            <div class="swatches" id="swatches" aria-label="Çekirdek Renkleri"></div>
+          </div>
+          <div class="preview-jars" aria-hidden="true">
+            <canvas id="pv1"></canvas><canvas id="pv2"></canvas><canvas id="pv3"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="step">Adım 3</div>
+        <h2>Kozmik floranı büyüt</h2>
+        <p class="hint" id="step3Hint"></p>
+        <div id="questions"></div>
+      </section>
+    </main>
+
+    <aside class="side">
+      <section class="panel" id="done">
+        <div class="step">Adım 4</div>
+        <h2>Kozmik Bahçen</h2>
+        <canvas class="poster" id="poster" aria-label="Kozmik bahçenizin önizlemesi. Tam ekran için tıklayın."></canvas>
+        <p class="hint" id="tierNote" hidden></p>
+        <p class="profile-line" id="profileLine" hidden></p>
+        <p class="status" id="status" role="alert" hidden></p>
+        <button class="big" id="save" type="button">Evrenimi kaydet</button>
+        <div class="clash-cta" id="clashCta" hidden>
+          <button class="clash-btn" id="copyClashLink" type="button">🪐 Partnerinle Karşılaştır (Link Kopyala)</button>
+        </div>
+        <div class="mode-cta" id="modeCta">
+          <span id="modeCtaText">Daha hızlı sonuç ister misin?</span>
+          <button id="switchMode" type="button">Hızlı mod</button>
+        </div>
+        <button class="linkbtn" id="showReveal" type="button" hidden style="width:100%;margin-top:8px;text-align:center">Arketipini tekrar gör</button>
+        <div class="small-links">
+          <span>Tüm veriler yalnızca bu cihazda kalır.</span>
+          <button class="linkbtn" id="reset" type="button">Baştan başla</button>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <p>Kozmik Bahçe · Taha BAŞTUĞ tarafından geliştirilmiştir.</p>
+    <p>Görsel ilham: <a href="https://github.com/LockedTony/kink-jars" target="_blank" rel="noopener noreferrer">Kink Jars — LockedTony</a></p>
+  </footer>
+</div>
+
+<div class="bar"><div class="bar-in"><span id="progress" aria-live="polite">0 / 28 yanıtlandı</span><button class="big" id="saveBar" type="button">Evrenimi kaydet</button></div></div>
+
+<div id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="sheet">
+    <h3 id="mt">Kozmik bahçen hazır!</h3>
+    <div id="modalBody"></div>
+    <button class="big" id="closeModal" type="button">Tamam</button>
+  </div>
+</div>
+
+<script>
+/* ===== ÖZEL SVG İKONLAR ===== */
+const SVG_ICONS = {
+  "0": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="5" opacity="0.5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>`,
+  "1": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 V11"/><path d="M12 13 Q9 11 7.5 8.5"/><circle cx="7.5" cy="8.5" r="1.2" fill="currentColor" stroke="none"/></svg>`,
+  "2": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20 V9"/><path d="M12 13 Q8 11 6 8"/><path d="M12 13 Q16 11 18 8"/></svg>`,
+  "3": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><path d="M12 3 V6 M12 18 V21 M3 12 H6 M18 12 H21 M5.5 5.5 L7.5 7.5 M16.5 16.5 L18.5 18.5 M18.5 5.5 L16.5 7.5 M7.5 16.5 L5.5 18.5" opacity="0.7"/></svg>`,
+  "4": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/><ellipse cx="12" cy="6" rx="2" ry="3"/><ellipse cx="12" cy="18" rx="2" ry="3"/><ellipse cx="6" cy="12" rx="3" ry="2"/><ellipse cx="18" cy="12" rx="3" ry="2"/><ellipse cx="8" cy="8" rx="1.6" ry="2.6" transform="rotate(45 8 8)"/><ellipse cx="16" cy="8" rx="1.6" ry="2.6" transform="rotate(-45 16 8)"/></svg>`,
+  "5": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/><path d="M12 1 V5 M12 19 V23 M1 12 H5 M19 12 H23 M4 4 L7 7 M17 17 L20 20 M20 4 L17 7 M7 17 L4 20"/><circle cx="12" cy="12" r="7" opacity="0.3"/></svg>`,
+  "x": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="12" cy="12" rx="10" ry="3" transform="rotate(-15 12 12)" opacity="0.55"/><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1"/></svg>`,
+  "?": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M3 20 L9 14" opacity="0.35"/><path d="M5 18 L11 12" opacity="0.55"/><path d="M7 16 L13 10" opacity="0.75"/><circle cx="15" cy="9" r="3" fill="currentColor" stroke="none"/><circle cx="15" cy="9" r="3" stroke="#fff" stroke-width="0.8"/></svg>`
+};
+function svgIcon(key) { return SVG_ICONS[String(key)] || ""; }
+
+const CHOICES = [
+  { value: 0, aria: "boşluk / ihtiyaç yok" },
+  { value: 1, aria: "mikro filiz / olmasa da olur" },
+  { value: 2, aria: "sürgün / olsa güzel olur" },
+  { value: 3, aria: "parıltı / önemli" },
+  { value: 4, aria: "kozmik çiçek / çok önemli" },
+  { value: 5, aria: "süpernova / vazgeçilmez" },
+  { value: "x", aria: "kara delik / kesin sınır" },
+  { value: "?", aria: "kuyruklu yıldız / keşfe açık" }
+];
+
+const LEGEND_ITEMS = [
+  { v: 0, label: "Boşluk" },
+  { v: 1, label: "Mikro Filiz" },
+  { v: 2, label: "Sürgün" },
+  { v: 3, label: "Parıltı" },
+  { v: 4, label: "Kozmik Çiçek" },
+  { v: 5, label: "Süpernova" },
+  { v: "x", label: "Kara Delik" },
+  { v: "?", label: "Kuyruklu Yıldız" }
+];
+
+const COSMIC_THEMES = {
+  twilight: { name: "Twilight", siteBg: "#070a12", cardBg: "#101726", line: "#1c2942", posterBg: "#0c111d", posterTex: "#4895ef" },
+  nebula: { name: "Derin Nebula", siteBg: "#0a0712", cardBg: "#171026", line: "#2c1e42", posterBg: "#110c1f", posterTex: "#9d4edd" },
+  forest: { name: "Astral Orman", siteBg: "#050f0e", cardBg: "#0d201e", line: "#183834", posterBg: "#081615", posterTex: "#2ec4b6" },
+  eclipse: { name: "Güneş Tutulması", siteBg: "#0f070b", cardBg: "#21131c", line: "#382030", posterBg: "#170a13", posterTex: "#ffb703" }
+};
+
+const CATEGORIES = [
+  { title: "Aynı evde yaşamak", desc: "Aynı çatı altında ortak bir yaşam alanı ve günlük ev düzeni kurmak." },
+  { title: "Ayrı evler veya alan", desc: "Ayrı evlerde yaşamak (LAT) ya da aynı ev içinde kendine ait bağımsız oda korumak." },
+  { title: "Ortak değerler & kriz", desc: "Temel hayat görüşünde, etik duruşta ortak zeminde buluşup sorunları çözebilmek." },
+  { title: "Gün boyu sık iletişim", desc: "Gün içinde sürekli mesajlaşma, anlık durum paylaşımı ve kesintisiz haberleşme." },
+  { title: "Aralıklı ve sakin iletişim", desc: "Anında yanıt verme baskısı olmadan, herkesin kendi odağına alan tanınması." },
+  { title: "Derin duygusal paylaşım", desc: "Korkuları, kırılganlıkları ve iç dünyayı tüm açıklığıyla konuşabilmek." },
+  { title: "Entelektüel tartışma", desc: "Fikirler, kitaplar, bilim, felsefe veya sanat üzerine zihinsel paylaşım." },
+  { title: "Romantik jestler", desc: "Yıldönümleri, sürprizler, özenli randevular ve klasik romantizm ritüelleri." },
+  { title: "Sosyal ortamda yakınlık", desc: "Dışarıda veya arkadaş ortamında el ele tutuşma, sarılma ve yakın olma." },
+  { title: "Şefkat odaklı temas", desc: "Cinsellik beklentisi olmadan sarılma, saç okşama ve ten teması." },
+  { title: "Cinsel tutku ve erotizm", desc: "Aktif, tutkulu ve keşfe açık bir cinsel yaşamın ilişkide merkezi olması." },
+  { title: "Tam tek eşlilik", desc: "Romantik ve cinsel açıdan yalnızca birbirine özel olma anlaşması." },
+  { title: "Açık / esnek sınırlar", desc: "Karşılıklı rızaya dayalı açık veya esnek ilişki dinamikleri." },
+  { title: "Ortak bütçe ve finans", desc: "Gelirleri, giderleri ve gelecek yatırımlarını ortak havuzda yönetmek." },
+  { title: "Finansal bağımsızlık", desc: "Herkesin kendi parasını ve kişisel harcamalarını bağımsız yönetmesi." },
+  { title: "Evlilik ve resmî bağ", desc: "İlişkiyi yasal evlilik, nişan veya resmî bir sözleşmeyle tanımlamak." },
+  { title: "Etiketsiz / akışında ilişki", desc: "Resmî kalıplar veya katı gelecek planları olmadan anda kalmak." },
+  { title: "Çocuk sahibi olmak", desc: "Gelecekte birlikte çocuk büyütmek veya ebeveynliği paylaşmak." },
+  { title: "Evcil hayvan ebeveynliği", desc: "Birlikte kedi, köpek veya başka bir canlının bakımını üstlenmek." },
+  { title: "Ailelerle kaynaşma", desc: "Kök ailelerle sık görüşmek ve bayramlara/yemeklere katılmak." },
+  { title: "Ortak arkadaş çevresi", desc: "Sosyal hayatı birleştirmek ve buluşmalara çift olarak katılmak." },
+  { title: "Bağımsız sosyal hayat", desc: "Partnerden ayrı arkadaş buluşmalarına ve kişisel zamana alan açmak." },
+  { title: "Ortak hobiler ve üretim", desc: "Birlikte spor yapmak, seyahat etmek veya ortak proje üretmek." },
+  { title: "Ev içi bakım ve destek", desc: "Birbirine yemek yapmak, hastalıkta bakmak ve günlük hayatı kolaylaştırmak." },
+  { title: "Kriz anında sığınak olma", desc: "Zor dönemlerde aktif duygusal regülasyon ve sarsılmaz destek sağlamak." },
+  { title: "Gelişim ve meydan okuma", desc: "Kariyer veya kişisel hedeflerde birbirini motive edip yapıcı eleştiri sunmak." },
+  { title: "Dijitalde çift görünürlüğü", desc: "Sosyal medyada birlikte fotoğraf paylaşmak ve ilişkiyi görünür kılmak." },
+  { title: "İlişki mahremiyeti", desc: "İlişki içi dinamikleri üçüncü kişilerden uzak, yalnızca iki kişi arasında tutmak." }
+];
+
+const SUBCATS = [
+  [{ id: "tam-zamanli", label: "Tam zamanlı aynı ev" }, { id: "ortak-duzen", label: "Ev işlerini paylaşma" }, { id: "ayni-yatak", label: "Aynı yatakta uyuma" }],
+  [{ id: "kendi-evi", label: "Kalıcı ayrı evler (LAT)" }, { id: "ayri-oda", label: "Ev içinde ayrı oda/alan" }, { id: "yari-zamanli", label: "Yarı zamanlı kalma" }],
+  [{ id: "deger-uyumu", label: "Dünya görüşü uyumu" }, { id: "bekletmeden", label: "Sorunları bekletmeden konuşma" }, { id: "sakinlesme", label: "Sakinleşmek için alan tanıma" }],
+  [{ id: "anlik-mesaj", label: "Sık mesajlaşma" }, { id: "sesli-arama", label: "Günlük telefon arama" }, { id: "konum-plan", label: "Konum ve plan paylaşımı" }],
+  [{ id: "odak-saygisi", label: "Çalışırken bildirim kapatma" }, { id: "aksam-ozeti", label: "Gün sonunda sohbet" }, { id: "baskisiz", label: "Yanıt baskısı olmama" }],
+  [{ id: "kirilganlik", label: "Korkuları açabilme" }, { id: "gecmis", label: "Geçmişi rahatça konuşma" }, { id: "terapi-dili", label: "Açık iletişim dili" }],
+  [{ id: "kitap-film", label: "Kitap, film ve sanat" }, { id: "felsefe-bilim", label: "Felsefi ve bilimsel sohbetler" }, { id: "seytanin-avukati", label: "Fikir düelloları" }],
+  [{ id: "randevu", label: "Özenli randevular" }, { id: "surpriz", label: "Küçük sürprizler" }, { id: "ozel-gun", label: "Yıldönümü kutlamaları" }],
+  [{ id: "el-ele", label: "El ele tutuşma" }, { id: "sarilma", label: "Sosyal ortamda temas" }, { id: "opucuk", label: "Kamusal alanda öpücük" }],
+  [{ id: "uzun-sarilma", label: "Uzun kucaklaşmalar" }, { id: "sac-oksama", label: "Saç ve sırt okşama" }, { id: "masaj", label: "Rahatlatıcı masaj" }],
+  [{ id: "yuksek-siklik", label: "Yüksek cinsel arzu" }, { id: "kesif", label: "Yeniliklere açıklık" }, { id: "cekim", label: "Flörtöz gerilim" }],
+  [{ id: "duygusal-ozel", label: "Duygusal münhasırlık" }, { id: "cinsel-ozel", label: "Tam cinsel sadakat" }, { id: "net-sinirlar", label: "Flört sınırlarının netliği" }],
+  [{ id: "etik-coklu", label: "Etik çoklu ilişki (ENM)" }, { id: "acik-cinsellik", label: "Cinsel esneklik" }, { id: "radikal-durustluk", label: "Şeffaf kurallar" }],
+  [{ id: "ortak-hesap", label: "Ortak banka hesabı" }, { id: "ortak-yatirim", label: "Ortak birikim yatırımı" }, { id: "tam-seffaflik", label: "Finansal şeffaflık" }],
+  [{ id: "ayri-hesap", label: "Tamamen ayrı hesaplar" }, { id: "esit-bolusum", label: "Giderleri 50/50 bölüşme" }, { id: "ozgur-harcama", label: "Kişisel finansal özgürlük" }],
+  [{ id: "resmi-nikah", label: "Resmî nikâh ve güvence" }, { id: "toren", label: "Düğün kutlaması" }, { id: "uzun-vade", label: "Hayat boyu taahhüt" }],
+  [{ id: "unvansiz", label: "Unvan kullanmama" }, { id: "anda-kalma", label: "Gelecek baskısı olmama" }, { id: "kendi-tanimi", label: "Kendi kurallarını yazma" }],
+  [{ id: "biyolojik", label: "Biyolojik çocuk" }, { id: "evlat-edinme", label: "Evlat edinme" }, { id: "esit-ebeveyn", label: "Eşit ebeveynlik" }],
+  [{ id: "kedi", label: "Kedi sahiplenme" }, { id: "kopek", label: "Köpek sahiplenme" }, { id: "ortak-bakim", label: "Ortak bakım sorumluluğu" }],
+  [{ id: "sik-ziyaret", label: "Ailelerle düzenli görüşme" }, { id: "ozel-gunler", label: "Bayramları aileyle geçirme" }],
+  [{ id: "cift-bulusmasi", label: "Çift arkadaş buluşmaları" }, { id: "ev-daveti", label: "Misafir ağırlama" }],
+  [{ id: "solo-arkadas", label: "Arkadaşlarla baş başa çıkma" }, { id: "solo-tatil", label: "Tek başına tatil" }, { id: "yalniz-zaman", label: "Yalnız kalma alanı" }],
+  [{ id: "seyahat", label: "Birlikte seyahat" }, { id: "spor-aktivite", label: "Spor ve yürüyüş" }, { id: "ortak-proje", label: "Ortak yaratıcı projeler" }],
+  [{ id: "yemek-kahve", label: "Yemek ve kahve hazırlama" }, { id: "hastalik-bakimi", label: "Hastalıkta şefkatli bakım" }],
+  [{ id: "sakin-liman", label: "Sakinleştirici güç olma" }, { id: "kosulsuz-destek", label: "Yargılamasız güvenli alan" }],
+  [{ id: "hedef-destek", label: "Kariyer/hedef teşviki" }, { id: "yapici-elestiri", label: "Nezaketle kör noktaları gösterme" }],
+  [{ id: "hikaye-post", label: "Hikâye ve gönderi paylaşma" }, { id: "profil-belli", label: "Dijitalde görünürlük" }],
+  [{ id: "sosyal-medya-uzak", label: "Sosyal medyada paylaşmama" }, { id: "ozel-dunya", label: "Sadece iki kişiye ait dünya" }]
+];
+
+const SECTIONS = [
+  { name: "Kökler", range: [0, 3], icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20 V11"/><path d="M12 14 Q8 12 6 9"/><path d="M12 14 Q16 12 18 9"/></svg>` },
+  { name: "Bağ", range: [3, 7], icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="12" r="4"/><circle cx="15" cy="12" r="4"/></svg>` },
+  { name: "Ateş", range: [7, 13], icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 3 Q15 8 15 12 Q15 17 12 20 Q9 17 9 12 Q9 8 12 3 Z"/><path d="M12 14 Q13 16 12 18" opacity="0.5"/></svg>` },
+  { name: "Dünya", range: [13, 22], icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12 H21"/></svg>` },
+  { name: "Vizyon", range: [22, 28], icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 4 V8 M12 16 V20 M4 12 H8 M16 12 H20"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg>` }
+];
+
+const QUICK_QUESTIONS = [0, 2, 3, 5, 6, 7, 10, 11, 15, 21];
+
+const IDX = { TOGETHER_LIVE:0,SEPARATE_HOME_SPACE:1,VALUES_CRISIS:2,DAILY_COMM:3,ASYNC_COMM:4,DEEP_TALK:5,MIND_BOND:6,ROMANCE:7,PUBLIC_AFF:8,NON_SEX_TOUCH:9,SEX_PASSION:10,MONOGAMY:11,ALT_DYNAMICS:12,SHARED_FIN:13,SEP_FIN:14,MARRIAGE:15,UNLABELED:16,PARENTING:17,PETS:18,FAMILIES:19,SOCIAL_MERGE:20,SOLO_SOCIAL:21,SHARED_HOBBY:22,DOMESTIC_CARE:23,CRISIS_ANCHOR:24,GROWTH_PUSH:25,DIGITAL_VIS:26,PRIVACY:27 };
+const N_CATS = 28;
+
+const ARCHETYPES = [
+  { id: "hedonist", name: "Galaktik Kaşif", kind: "posture", motto: "İlişkide açık büfeyi kapattım, her deneyime ve paylaşıma varım." },
+  { id: "kasif", name: "Kozmik Seyyah", kind: "posture", motto: "Kesin kuralları sevmem; hele bir yola çıkalım, yörünge yolda çizilir." },
+  { id: "minimalist", name: "Astral Botanikçi", kind: "posture", motto: "Az beklenti, sıfır kaos; sınırlarım kırmızı çizgimdir." },
+  { id: "switch", name: "Kuantum Senkronisti", kind: "role", fam: null, tags: ["1:ayri-oda","1:yari-zamanli","4:sessiz-birliktelik"], motto: "Hem diz dize olalım hem de herkes kendi odasına çekilmeyi bilsin." },
+  { id: "yuva", name: "Köklü Ekosistem Mimarı", kind: "role", fam: "gelecek", w: { [IDX.TOGETHER_LIVE]:3,[IDX.MARRIAGE]:3,[IDX.SHARED_FIN]:3,[IDX.FAMILIES]:2,[IDX.PARENTING]:2,[IDX.DOMESTIC_CARE]:2,[IDX.MONOGAMY]:1 }, motto: "Flört aşamasını hızlı geçelim; ortak evi ve geleceği ne zaman kuruyoruz?" },
+  { id: "ozerk", name: "Yörüngesel Yoldaş", kind: "role", fam: "bireysel", w: { [IDX.SEPARATE_HOME_SPACE]:3,[IDX.SOLO_SOCIAL]:3,[IDX.SEP_FIN]:3,[IDX.ASYNC_COMM]:2,[IDX.UNLABELED]:2 }, motto: "Seni çok severim ama kişisel alanımın sınır kapısında vize kontrolü var." },
+  { id: "romantik", name: "Süpernova Ortağı", kind: "role", fam: "tutku", w: { [IDX.ROMANCE]:3,[IDX.SEX_PASSION]:3,[IDX.NON_SEX_TOUCH]:3,[IDX.DAILY_COMM]:2,[IDX.PUBLIC_AFF]:2,[IDX.DEEP_TALK]:1 }, motto: "Ilık sevgi bana göre değil; ya tam tutkuyla yanacağız ya da hiç." },
+  { id: "zihin", name: "Zodyak Vizyoneri", kind: "role", fam: "entelektuel", w: { [IDX.MIND_BOND]:3,[IDX.DEEP_TALK]:3,[IDX.GROWTH_PUSH]:3,[IDX.SHARED_HOBBY]:2,[IDX.ASYNC_COMM]:1 }, motto: "Saatlerce fikir, hayat ve felsefe konuşamadığım biriyle aynı yörüngede kalamam." },
+  { id: "siginak", name: "Işık Hüzmesi Sığınağı", kind: "theme", fam: "sefkat", w: { [IDX.CRISIS_ANCHOR]:3,[IDX.DOMESTIC_CARE]:3,[IDX.NON_SEX_TOUCH]:3,[IDX.DEEP_TALK]:2,[IDX.PETS]:2 }, motto: "Dış dünya yeterince yorucu; ilişki dediğin birbirine sığınak olmaktır." },
+  { id: "sosyal", name: "Sosyal Takımyıldız", kind: "theme", fam: "sosyallik", w: { [IDX.SOCIAL_MERGE]:3,[IDX.PUBLIC_AFF]:3,[IDX.DIGITAL_VIS]:2,[IDX.FAMILIES]:2,[IDX.SHARED_HOBBY]:2 }, motto: "Biz sadece iki kişi değiliz; dost meclisimiz ve sosyal hayatımızla bir bütünüz." },
+  { id: "mahrem", name: "Nebula Sırdaşı", kind: "theme", fam: "mahremiyet", w: { [IDX.PRIVACY]:3,[IDX.MONOGAMY]:3,[IDX.DEEP_TALK]:2,[IDX.CRISIS_ANCHOR]:2,[IDX.NON_SEX_TOUCH]:1 }, motto: "Bizi kimse bilmesin; dış dünyaya kapalı, sadece ikimize ait gizli bir evreniz." },
+  { id: "tasarimci", name: "Yıldızlararası Tasarımcı", kind: "theme", fam: "esnek", damp: 0.95, w: { [IDX.ALT_DYNAMICS]:3,[IDX.UNLABELED]:3,[IDX.SEPARATE_HOME_SPACE]:2,[IDX.SEP_FIN]:1 }, motto: "Toplumun hazır ilişki kalıplarını çöpe attım, kuralları baştan yazıyoruz." },
+  { id: "gurme", name: "Seçici Bahçe Gurmesi", kind: "posture", motto: "Her şeye enerjim yok ama önemli gördüğüm birkaç konuda standartlarım zirvededir." }
+];
+const ARCH = Object.fromEntries(ARCHETYPES.map((a, i) => [a.id, { ...a, order: i }]));
+
+const MODALITIES = [
+  { id: "duygusal", name: "Derin Duygusal Şeffaflık", w: { [IDX.DEEP_TALK]:3,[IDX.CRISIS_ANCHOR]:3,[IDX.NON_SEX_TOUCH]:2,[IDX.PRIVACY]:1 } },
+  { id: "entelektuel", name: "Zihinsel ve Felsefi Uyum", w: { [IDX.MIND_BOND]:3,[IDX.GROWTH_PUSH]:2,[IDX.DEEP_TALK]:2,[IDX.SHARED_HOBBY]:1 } },
+  { id: "tutku", name: "Fiziksel Çekim ve Romantizm", w: { [IDX.SEX_PASSION]:3,[IDX.ROMANCE]:3,[IDX.NON_SEX_TOUCH]:2,[IDX.PUBLIC_AFF]:1 } },
+  { id: "sefkat", name: "Evcil Huzur ve Şefkat Emeği", w: { [IDX.DOMESTIC_CARE]:3,[IDX.NON_SEX_TOUCH]:3,[IDX.PETS]:2,[IDX.TOGETHER_LIVE]:2 } },
+  { id: "gelecek", name: "Uzun Vadeli Ortak Gelecek", w: { [IDX.MARRIAGE]:3,[IDX.SHARED_FIN]:3,[IDX.TOGETHER_LIVE]:2,[IDX.PARENTING]:2,[IDX.FAMILIES]:1 } },
+  { id: "bireysel", name: "Kişisel Alan ve Bağımsızlık", w: { [IDX.SOLO_SOCIAL]:3,[IDX.SEPARATE_HOME_SPACE]:3,[IDX.SEP_FIN]:2,[IDX.ASYNC_COMM]:2 } },
+  { id: "sosyallik", name: "Sosyal Hayat ve Görünürlük", w: { [IDX.SOCIAL_MERGE]:3,[IDX.PUBLIC_AFF]:2,[IDX.DIGITAL_VIS]:2,[IDX.FAMILIES]:2 } },
+  { id: "mahremiyet", name: "Sırdaşlık ve Kapalı Dünya", w: { [IDX.PRIVACY]:3,[IDX.MONOGAMY]:3,[IDX.CRISIS_ANCHOR]:1 } },
+  { id: "gelisim", name: "Ortak Üretim ve Dinamizm", w: { [IDX.GROWTH_PUSH]:3,[IDX.SHARED_HOBBY]:3,[IDX.MIND_BOND]:1 } },
+  { id: "esnek", name: "Kalıp Dışı ve Akışkan Yapı", w: { [IDX.UNLABELED]:3,[IDX.ALT_DYNAMICS]:3,[IDX.VALUES_CRISIS]:2 } }
+];
+
+const DS_PAIRS = [[IDX.TOGETHER_LIVE,IDX.SEPARATE_HOME_SPACE,2.5],[IDX.SOCIAL_MERGE,IDX.SOLO_SOCIAL,2.0],[IDX.DAILY_COMM,IDX.ASYNC_COMM,1.5],[IDX.SHARED_FIN,IDX.SEP_FIN,1.5],[IDX.MARRIAGE,IDX.UNLABELED,1.5],[IDX.FAMILIES,IDX.PRIVACY,1.0],[IDX.MONOGAMY,IDX.ALT_DYNAMICS,1.0]];
+const DS_TAG_NUDGE = { "0:tam-zamanli":["D",0.25], "1:kendi-evi":["S",0.25], "21:yalniz-zaman":["S",0.25] };
+
+const CFG = { Q_SIGNAL:0.25, MIN_CORE_ROLE:0.6, MIN_CORE_MODALITY:0.4, MAIN_THRESHOLD:0.35, MODALITY_THRESHOLD:0.35, TAG_BONUS:0.05, TAG_BONUS_MAX:0.15, STRONG:0.85, ROLE_BEATS_POSTURE:0.6, COVERAGE_MIN:0.6, SECONDARY_GAP:0.10, DS_UNDEFINED_BELOW:1.0, DS_LEAN:0.18, SWITCH_RATIO:0.72, SWITCH_MIN_SIDE:4.2, MODALITY_FLAT_SPREAD:0.15 };
+
+const clamp01 = x => Math.max(0, Math.min(1, x));
+const signal = a => { if (typeof a === "number") return a / 5; if (a === "x" || a === "?") return CFG.Q_SIGNAL; return 0; };
+function tagSet(subs) { const s = new Set(); (subs||[]).forEach((ids,i)=>(ids||[]).forEach(id=>{s.add(i+":"+id);s.add(i+":*")})); return s; }
+function tagBonus(tags, set) { if (!tags) return 0; let n = 0; for (const t of tags) if (set.has(t)) n++; return Math.min(CFG.TAG_BONUS_MAX, n * CFG.TAG_BONUS); }
+function weightedScore(spec, S, set, minCore) {
+  let sw = 0, sum = 0, core = 0;
+  for (const k of Object.keys(spec.w)) { const w = spec.w[k], v = S[+k]; sw += w; sum += w * v; if (w === 3) core = Math.max(core, v); }
+  if (core < minCore) return 0;
+  return clamp01((0.6 * sum / sw + 0.4 * core + tagBonus(spec.tags, set)) * (spec.damp || 1));
+}
+function computeStats(answers) {
+  const S = answers.map(signal);
+  const answered = answers.filter(a => a !== null).length;
+  const N = answered || 1;
+  const st = { answered, avg: S.reduce((p,c)=>p+c,0)/N, breadth: answers.filter(a=>typeof a==="number"&&a>=3).length/N, peaks5: answers.filter(a=>a===5).length, peaks4: answers.filter(a=>typeof a==="number"&&a>=4).length, xCount: answers.filter(a=>a==="x").length, qCount: answers.filter(a=>a==="?").length, zeroCount: answers.filter(a=>a===0).length };
+  st.xRate=st.xCount/N; st.qRate=st.qCount/N; st.zeroRate=st.zeroCount/N;
+  const top5=[...S].sort((a,b)=>b-a).slice(0,5); st.selectivity=top5.reduce((p,c)=>p+c,0)/5-st.avg;
+  const nonPeak=answers.filter(a=>a!==null&&!(typeof a==="number"&&a>=4)); const rest0x=nonPeak.filter(a=>a===0||a==="x").length; st.restRate=nonPeak.length?rest0x/nonPeak.length:0; st.S=S; return st;
+}
+function computeDS(S, set) {
+  let D=0, Sb=0;
+  for (const [d,s,w] of DS_PAIRS) { D+=w*S[d]; Sb+=w*S[s]; }
+  for (const key in DS_TAG_NUDGE) if (set.has(key)) { const [side,amt]=DS_TAG_NUDGE[key]; if(side==="D") D+=amt; else Sb+=amt; }
+  const total=D+Sb; const undefinedAxis=total<CFG.DS_UNDEFINED_BELOW;
+  const balance=undefinedAxis?0:(D-Sb)/total;
+  const hi=Math.max(D,Sb), lo=Math.min(D,Sb); const ratio=hi>0?lo/hi:0;
+  let label;
+  if (undefinedAxis) label="belirsiz";
+  else if ((ratio>=CFG.SWITCH_RATIO && lo>=CFG.SWITCH_MIN_SIDE) || (S[IDX.VALUES_CRISIS]>=0.8 && ratio>=0.55)) label="switch";
+  else if (balance>CFG.DS_LEAN) label="dominant";
+  else if (balance<-CFG.DS_LEAN) label="submissive";
+  else label="dengeli";
+  const domPct=Math.round(50+50*balance);
+  return { D, S: Sb, total, balance, ratio, undefinedAxis, label, pos:50+50*balance, domPct, subPct:100-domPct };
+}
+function postureScores(st) {
+  const hedonist=clamp01(st.breadth/0.8)*(st.xCount<=1?1:Math.max(0,1-(st.xCount-1)*0.25))*clamp01(st.avg/0.55);
+  const kasif=clamp01(st.qRate/0.35);
+  const minimalist=clamp01((st.xRate+st.zeroRate)/0.6)*(st.peaks4<=3?1:Math.max(0,1-(st.peaks4-3)*0.25));
+  const peakFit=(st.peaks4>=4&&st.peaks4<=8)?1:(st.peaks4===3||st.peaks4===9||st.peaks4===10)?0.5:0;
+  const gurme=peakFit*clamp01(st.restRate/0.7)*clamp01(st.selectivity/0.45);
+  return { hedonist, kasif, minimalist, gurme };
+}
+function roleScores(S, ds, set) {
+  const out={};
+  for (const a of ARCHETYPES) {
+    if (a.kind==="posture") continue;
+    let sc;
+    if (a.id==="switch") {
+      const mergeSide=Math.max(S[IDX.TOGETHER_LIVE],S[IDX.SOCIAL_MERGE]);
+      const autoSide=Math.max(S[IDX.SOLO_SOCIAL],S[IDX.SEPARATE_HOME_SPACE],S[IDX.ASYNC_COMM]);
+      const minSide=Math.min(mergeSide,autoSide);
+      const gate=minSide>=0.6||(S[IDX.VALUES_CRISIS]>=0.8&&minSide>=0.4);
+      if (!gate) sc=0;
+      else {
+        const rf=ds.undefinedAxis?0:ds.ratio*Math.min(1,Math.max(ds.D,ds.S)/3);
+        sc=clamp01(0.4*S[IDX.VALUES_CRISIS]+0.35*rf+0.25*minSide+tagBonus(a.tags,set));
+      }
+    } else sc=weightedScore(a,S,set,CFG.MIN_CORE_ROLE);
+    out[a.id]=sc;
+  }
+  return out;
+}
+function coverage(id, answers) {
+  const peaks=[]; answers.forEach((a,i)=>{ if(typeof a==="number"&&a>=4) peaks.push(i); });
+  if (!peaks.length) return 1;
+  const spec=ARCH[id]; const keys=id==="switch"?[IDX.TOGETHER_LIVE,IDX.SEPARATE_HOME_SPACE,IDX.VALUES_CRISIS,IDX.SOLO_SOCIAL]:Object.keys(spec.w).map(k=>+k);
+  const set=new Set(keys); return peaks.filter(i=>set.has(i)).length/peaks.length;
+}
+function pickMain(st, ds, set, answers) {
+  const post=postureScores(st); const roles=roleScores(st.S,ds,set);
+  const ranked=Object.entries(roles).map(([id,score])=>({id,score,order:ARCH[id].order})).sort((a,b)=>b.score-a.score||a.order-b.order);
+  const bestRole=ranked[0];
+  const isStrong=k=>post[k]>=CFG.STRONG;
+  const mk=(id,score,extra)=>({id,name:ARCH[id].name,motto:ARCH[id].motto,score,...extra});
+  let main,secondary=null;
+  if (isStrong("hedonist")) main=mk("hedonist",post.hedonist);
+  else if (isStrong("kasif")) { main=mk("kasif",post.kasif); if (bestRole.score>=CFG.ROLE_BEATS_POSTURE) secondary=mk(bestRole.id,bestRole.score); }
+  else if ((isStrong("minimalist")||isStrong("gurme"))&&(bestRole.score<CFG.ROLE_BEATS_POSTURE||coverage(bestRole.id,answers)<CFG.COVERAGE_MIN)) {
+    const k=post.minimalist>=post.gurme?"minimalist":"gurme";
+    main=mk(k,post[k]); if (bestRole.score>=CFG.MAIN_THRESHOLD) secondary=mk(bestRole.id,bestRole.score);
+  } else if (bestRole.score>=CFG.MAIN_THRESHOLD) {
+    main=mk(bestRole.id,bestRole.score);
+    const strongPost=["minimalist","gurme"].filter(isStrong).sort((a,b)=>post[b]-post[a])[0];
+    const second=ranked[1];
+    if (strongPost) secondary=mk(strongPost,post[strongPost]);
+    else if (second&&second.score>=CFG.MAIN_THRESHOLD&&(bestRole.score-second.score)/bestRole.score<CFG.SECONDARY_GAP) secondary=mk(second.id,second.score);
+  } else {
+    const best=Object.entries(post).sort((a,b)=>b[1]-a[1])[0];
+    if (best[1]>=0.25) main=mk(best[0],best[1],{weak:true});
+    else main=mk("kasif",best[1],{weak:true,fallback:true,motto:"Hiçbir kalıba tam sığmayan, kendine has dengeli bir yörünge."});
+  }
+  return { main, secondary, post, roles };
+}
+function pickModalities(S, set, mainId) {
+  const skip=ARCH[mainId]&&ARCH[mainId].fam;
+  const raw=MODALITIES.filter(m=>m.id!==skip).map((m,i)=>({id:m.id,name:m.name,score:weightedScore(m,S,set,CFG.MIN_CORE_MODALITY),order:i}));
+  const flat=Math.max(...raw.map(m => m.score))-Math.min(...raw.map(m => m.score))<CFG.MODALITY_FLAT_SPREAD;
+  if (flat) return { shown: [], all: [], flat: true };
+  const list=raw.filter(m=>m.score>=CFG.MODALITY_THRESHOLD).sort((a,b)=>b.score-a.score||a.order-b.order);
+  const out=list.slice(0,2); if (list[2]&&list[2].score>=0.9*list[1].score) out.push(list[2]);
+  return { shown: list.slice(0,3).map(({id,name,score})=>({id,name,score})), all: list };
+}
+const CATS_SAFE = a => { const out=[]; for (let i=0;i<N_CATS;i++) out.push(Array.isArray(a)&&a[i]!==undefined?a[i]:null); return out; };
+function computeProfile(state) {
+  const answers=CATS_SAFE(state.answers); const set=tagSet(state.subs);
+  const st=computeStats(answers); const ds=computeDS(st.S,set);
+  const { main, secondary } = pickMain(st, ds, set, answers);
+  const mod=pickModalities(st.S,set,main.id);
+  return { main, secondary, modalities: mod.shown, ds, stats: { ...st, S: undefined } };
+}
+
+const SUMMARY_TEXTS = {
+  hedonist: "Galaktik Kaşif eğilimin, evrenin farklı köşelerini keşfetmeye açık ve çok yönlü bir ilişki evreni kurduğunu gösteriyor.",
+  kasif: "Kozmik Seyyah eğilimin, henüz netleşmemiş alanlara ilgi duyduğunu ve soru işaretlerini keşif aracı olarak kullandığını gösteriyor.",
+  minimalist: "Astral Botanikçi eğilimin, az sayıda belirgin tohum ektiğini ve seçiciliğini net sınırlar üzerinden koruduğunu yansıtıyor.",
+  switch: "Kuantum Senkronisti eğilimin, hem ortak ekosistemi büyütmeye hem de kişisel alanı korumaya esnek bir şekilde uyum sağladığını gösteriyor.",
+  yuva: "Köklü Ekosistem Mimarı eğilimin, aynı toprakta derin kökler salmaya ve kalıcı bir yaşam alanı kurmaya önem verdiğini gösteriyor.",
+  ozerk: "Yörüngesel Yoldaş eğilimin, güçlü bir bağ kurarken bile kendi yörüngenden ve bağımsızlığından ödün vermemeyi seçtiğini gösteriyor.",
+  romantik: "Süpernova Ortağı eğilimin, ilişkide tutkuyu, romantik jestleri ve yoğun enerjiyi en yüksek frekansta tuttuğunu gösteriyor.",
+  zihin: "Zodyak Vizyoneri eğilimin, zihinsel uyumu, entelektüel üretimi ve ortak gelişimi ilişkinin kalbine koyduğunu gösteriyor.",
+  siginak: "Işık Hüzmesi Sığınağı eğilimin, şefkat emeğini, kriz anlarında sığınak olmayı ve huzurlu bir iklim kurmayı önceliklendirdiğini gösteriyor.",
+  sosyal: "Sosyal Takımyıldız eğilimin, ilişkiyi geniş bir dostluk çemberi ve sosyal görünürlükle çevrelemek istediğini gösteriyor.",
+  mahrem: "Nebula Sırdaşı eğilimin, dış dünyanın gürültüsünden uzak, yalnızca iki kişiye ait gizli ve derin bir ada kurduğunu gösteriyor.",
+  tasarimci: "Yıldızlararası Tasarımcı eğilimin, standart kalıpların ötesine geçerek ilişki kurallarını özgürce yeniden tasarladığını gösteriyor.",
+  gurme: "Seçici Bahçe Gurmesi eğilimin, belirli alanlarda yoğunlaşırken diğerlerinde seçici kaldığını yansıtıyor.",
+  karma: "Yanıtların tek bir arketipte toplanmıyor; evreninde çok yönlü ve dengeli bir dağılım var."
+};
+function dsSentence(ds) {
+  if (ds.undefinedAxis) return "Bağ ve özerklik ekseni şu an belirsiz; ortaklaşım ya da bireysel alan yönü henüz keskinleşmiş değil.";
+  if (ds.label === "switch") return "İlişki dengesinde 'Hem Biz Hem Ben' yaklaşımı öne çıkıyor; ortak ekosistem ve kişisel alan eşit ağırlıkta.";
+  if (ds.label === "dominant") return `Evren dengesinde Ortaklaşım ('Biz' odaklılık) %${ds.domPct} ağırlıkla öne çıkıyor.`;
+  if (ds.label === "submissive") return `Evren dengesinde Özerklik ('Ben' alanını koruma) %${ds.subPct} ağırlıkla öne çıkıyor.`;
+  return "Evren dengesinde ortaklaşım ve bireysel özerklik birbirine oldukça yakın duruyor.";
+}
+function buildSummary(profile) {
+  const key=profile.main.fallback?"karma":profile.main.id;
+  const parts=[SUMMARY_TEXTS[key]||SUMMARY_TEXTS.karma];
+  if (profile.modalities && profile.modalities.length) parts.push(`Alt odaklarında ${profile.modalities.map(m=>m.name.toLocaleLowerCase("tr-TR")).join(", ")} öne çıkıyor.`);
+  parts.push(dsSentence(profile.ds));
+  return parts.join(" ");
+}
+
+const VISIBLE_ANSWERS = new Set([1,2,3,4,5,"?"]);
+const PW = 1200, COL_W = 155;
+const POSTER_TOP = 310, PROFILE_BLOCK_H = 560, FIRST_CONTENT_TOP = POSTER_TOP + PROFILE_BLOCK_H;
+const FINAL_BOTTOM_PAD = 70, FOOTER_H = 120;
+const DISCLAIMER_TEXT = "Keşif ve iletişim amaçlıdır; klinik tanı veya çift terapisi değerlendirmesi değildir.";
+const JAR_H = 170, TITLE_GAP = 48;
+const TITLE_MAX_W = 135;
+const TITLE_LINE_GAP = 4;
+const TITLE_MAX_SIZE = 22;
+const SUB_SIZE = 14, SUB_LINE_GAP = 3, SUB_GAP = 14;
+const CELL_BOTTOM_PAD = 72, ROW_MIN_H = 360;
+const COMPACT_MAX_H = 1900, SINGLE_MAX_H = 2600;
+const PRESETS = ["#4895ef","#9d4edd","#f72585","#4cc9f0","#2ec4b6","#ffb703","#fb8500","#7209b7","#3a0ca3","#560bad","#ff006e","#3f37c9"];
+const STORE = "kozmik-bahce-v11";
+const ONBOARD_KEY = "kozmik-onboarded-v1";
+const $ = id => document.getElementById(id);
+
+const hexToRgb = h => { h=String(h||"#4895ef").replace("#",""); if (h.length===3) h=[...h].map(x=>x+x).join(""); const n=parseInt(h,16); return [n>>16&255, n>>8&255, n&255]; };
+const rgbToHex = a => "#" + a.map(v => Math.round(v).toString(16).padStart(2,"0")).join("");
+const mix = (a,b,t) => a.map((v,i)=>v+(b[i]-v)*t);
+const css = (a, al=1) => `rgba(${a.map(Math.round).join(",")},${al})`;
+const lighten = (a,t) => css(mix(a,[255,255,255],t));
+const darken = (a,t) => css(mix(a,[0,0,0],t));
+const lum = ([r,g,b]) => (0.299*r+0.587*g+0.114*b)/255;
+const validHex = h => validHexCheck(h);
+function validHexCheck(h){return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(String(h||""));}
+const normalizeHex = h => validHexCheck(h)?rgbToHex(hexToRgb(h)):"#4895ef";
+
+function normalizeAnswer(v) {
+  if (typeof v==="number" && Number.isInteger(v) && v>=0 && v<=5) return v;
+  if (typeof v==="string") { const t=v.trim().toLowerCase(); if (/^[0-5]$/.test(t)) return Number(t); if (t==="x") return "x"; if (t==="?") return "?"; }
+  return null;
+}
+const emptySubs = () => CATEGORIES.map(() => []);
+
+let state = { name:"", color:"#4895ef", theme:"twilight", texIntensity:35, mode:"deep", answers:CATEGORIES.map(()=>null), subs:emptySubs() };
+
+function activeIndices() { return state.mode === "quick" ? QUICK_QUESTIONS : CATEGORIES.map((_, i) => i); }
+function allAnswered() { return activeIndices().every(i => state.answers[i] !== null); }
+function hasAnyAnswer() { return activeIndices().some(i => state.answers[i] !== null); }
+
+function applyLoaded(s) {
+  if (!s || typeof s !== "object") return false;
+  state.name = typeof s.name==="string" ? s.name.slice(0,24) : "";
+  state.color = normalizeHex(s.color);
+  if (typeof s.theme==="string" && COSMIC_THEMES[s.theme]) state.theme = s.theme;
+  if (typeof s.texIntensity==="number") state.texIntensity = s.texIntensity;
+  if (s.mode === "quick" || s.mode === "deep") state.mode = s.mode;
+  if (Array.isArray(s.answers)) state.answers = CATEGORIES.map((_, i) => normalizeAnswer(s.answers[i]));
+  if (Array.isArray(s.subs)) state.subs = CATEGORIES.map((_, i) => {
+    const arr = Array.isArray(s.subs[i]) ? s.subs[i] : [];
+    const valid = new Set(SUBCATS[i].map(x => x.id));
+    return arr.filter(id => typeof id==="string" && valid.has(id));
+  });
+  return true;
+}
+
+function encodeStateToParam() {
+  try {
+    const payload = { n: state.name, c: state.color, t: state.theme, m: state.mode, a: state.answers };
+    return btoa(encodeURIComponent(JSON.stringify(payload)));
+  } catch(e) { return ""; }
+}
+function decodeStateFromParam(param) {
+  try {
+    const json = decodeURIComponent(atob(param));
+    const obj = JSON.parse(json);
+    return {
+      name: obj.n || "",
+      color: normalizeHex(obj.c),
+      theme: COSMIC_THEMES[obj.t] ? obj.t : "twilight",
+      mode: obj.m === "quick" ? "quick" : "deep",
+      answers: CATEGORIES.map((_, i) => normalizeAnswer(obj.a && obj.a[i]))
+    };
+  } catch(e) { return null; }
+}
+
+let partnerState = null;
+const urlParams = new URLSearchParams(location.search);
+const clashParam = urlParams.get("c");
+if (clashParam) {
+  partnerState = decodeStateFromParam(clashParam);
+}
+
+try { const raw = localStorage.getItem(STORE); if (raw) applyLoaded(JSON.parse(raw)); } catch(e) {}
+CATEGORIES.forEach((_,i)=>{ if (!VISIBLE_ANSWERS.has(state.answers[i])) state.subs[i]=[]; });
+const persist = () => { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch(e) {} };
+
+function toggleSub(catIndex, id) {
+  const arr = state.subs[catIndex];
+  const i = arr.indexOf(id);
+  if (i >= 0) arr.splice(i, 1); else arr.push(id);
+  persist(); update();
+}
+function selectedSubLabels(catIndex) {
+  const sel = new Set(state.subs[catIndex]);
+  return SUBCATS[catIndex].filter(s => sel.has(s.id)).map(s => s.short || s.label);
+}
+function rng(seed) { return () => { seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function wrapText(c, text, maxWidth) {
+  const words = text.split(" "); const lines = []; let current = "";
+  for (const word of words) {
+    const test = current ? current + " " + word : word;
+    if (c.measureText(test).width <= maxWidth || !current) current = test;
+    else { lines.push(current); current = word; }
+  }
+  if (current) lines.push(current);
+  return lines;
+}
+function roundRect(c, x, y, w, h, r) {
+  c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath();
+}
+
+function drawBlackHole(c, cx, cy) {
+  c.save();
+  const diskGrad = c.createRadialGradient(cx, cy, 2, cx, cy, 32);
+  diskGrad.addColorStop(0, "rgba(247,37,133,0)");
+  diskGrad.addColorStop(0.7, "rgba(247,37,133,.45)");
+  diskGrad.addColorStop(1, "rgba(247,37,133,0)");
+  c.fillStyle = diskGrad;
+  c.beginPath(); c.ellipse(cx, cy, 32, 12, 0.4, 0, Math.PI * 2); c.fill();
+  c.beginPath(); c.arc(cx, cy, 14, 0, Math.PI * 2); c.fillStyle = "#070a12"; c.fill();
+  c.lineWidth = 3; c.strokeStyle = "#fff"; c.stroke();
+  c.restore();
+}
+function drawComet(c, cx, cy) {
+  c.save();
+  const tailX = cx - 38, tailY = cy - 38;
+  const glow = c.createRadialGradient(cx, cy, 2, cx, cy, 28);
+  glow.addColorStop(0, "rgba(72,149,239,.55)"); glow.addColorStop(1, "rgba(72,149,239,0)");
+  c.fillStyle = glow; c.fillRect(cx - 28, cy - 28, 56, 56);
+  const grad = c.createLinearGradient(tailX, tailY, cx, cy);
+  grad.addColorStop(0, "rgba(72,149,239,0)"); grad.addColorStop(1, "rgba(72,149,239,.85)");
+  c.beginPath(); c.moveTo(tailX, tailY); c.lineTo(cx, cy); c.lineWidth = 8; c.lineCap = "round"; c.strokeStyle = grad; c.stroke();
+  c.beginPath(); c.arc(cx, cy, 8, 0, Math.PI * 2); c.fillStyle = "#fff"; c.fill();
+  c.lineWidth = 2.5; c.strokeStyle = "#4895ef"; c.stroke();
+  c.restore();
+}
+function drawJar(c, idx, answer, rgb) {
+  const isNull = answer === null || answer === undefined;
+  const level = typeof answer === "number" ? answer : 0;
+  const special = answer === "x" || answer === "?";
+  const seed = (idx * 7919 + (typeof answer==="number"?answer*37:answer==="x"?101:answer==="?"?211:0) + (rgb ? rgb[0] : 72)*7) | 0;
+  const rand = rng(seed);
+  if (!rgb) rgb = [72, 149, 239];
+  c.save(); c.lineJoin = "round"; c.lineCap = "round";
+  const cx = 48, cy = 100;
+
+  if (level >= 3 || special) {
+    const glowRgb = special ? (answer==="x"?[247,37,133]:[72,149,239]) : rgb;
+    const glow = c.createRadialGradient(cx, cy - 16, 4, cx, cy - 16, 55);
+    glow.addColorStop(0, css(glowRgb, .32)); glow.addColorStop(.5, css(glowRgb, .10)); glow.addColorStop(1, css(glowRgb, 0));
+    c.fillStyle = glow; c.fillRect(cx - 55, cy - 71, 110, 110);
+  }
+  c.beginPath(); c.arc(cx, 155, 26, 0.2*Math.PI, 0.8*Math.PI, false); c.lineWidth = 3.5; c.strokeStyle = "#fff"; c.stroke();
+  c.beginPath(); c.arc(cx, 155, 18, 0, Math.PI * 2); c.fillStyle = "rgba(255,255,255,.15)"; c.fill();
+
+  if (isNull) {
+    c.beginPath(); c.arc(cx, cy + 20, 10, 0, Math.PI * 2); c.setLineDash([3, 4]);
+    c.lineWidth = 2; c.strokeStyle = "rgba(255,255,255,.28)"; c.stroke(); c.setLineDash([]);
+  } else if (level === 0 && !special) {
+    c.beginPath(); c.arc(cx, cy + 22, 5.5, 0, Math.PI * 2);
+    c.fillStyle = lighten(rgb, .3); c.fill();
+    c.lineWidth = 1.5; c.strokeStyle = "rgba(255,255,255,.5)"; c.stroke();
+  }
+  if (level === 1 && !special) {
+    const angleOffset = (rand() - 0.5) * 0.2;
+    c.beginPath(); c.moveTo(cx, 140); c.quadraticCurveTo(cx - 4 + angleOffset*10, cy+15, cx + angleOffset*15, cy+5);
+    c.lineWidth = 3; c.strokeStyle = lighten(rgb, .4); c.stroke();
+    c.beginPath(); c.arc(cx + angleOffset*15, cy, 4, 0, Math.PI*2); c.fillStyle = css(rgb); c.fill(); c.stroke();
+  }
+  if (level === 2 && !special) {
+    const lean = (rand() - 0.5) * 4;
+    c.beginPath(); c.moveTo(cx, 140); c.quadraticCurveTo(cx-6 + lean, cy+10, cx + lean*1.5, cy-10);
+    c.lineWidth = 3.5; c.strokeStyle = lighten(rgb, .5); c.stroke();
+    c.fillStyle = css(rgb);
+    for (const s of [-1,1]) { c.beginPath(); c.ellipse(cx+s*10 + lean, cy+5, 8, 4, s*0.5 + lean*0.05, 0, Math.PI*2); c.fill(); c.stroke(); }
+  }
+  if (level === 3 && !special) {
+    const wobble = (rand() - 0.5) * 3;
+    c.beginPath(); c.moveTo(cx, 140); c.quadraticCurveTo(cx+4 + wobble, cy+5, cx + wobble, cy-15);
+    c.lineWidth = 4; c.strokeStyle = lighten(rgb, .5); c.stroke();
+    c.beginPath(); c.arc(cx + wobble, cy-18, 10 + rand()*2, 0, Math.PI*2);
+    const g = c.createRadialGradient(cx-2, cy-20, 2, cx, cy-18, 10);
+    g.addColorStop(0, lighten(rgb,.7)); g.addColorStop(1, css(rgb));
+    c.fillStyle = g; c.fill(); c.lineWidth = 2.5; c.strokeStyle = "#fff"; c.stroke();
+  }
+  if (level === 4 && !special) {
+    c.beginPath(); c.moveTo(cx, 140); c.lineTo(cx, cy-5);
+    c.lineWidth = 4.5; c.strokeStyle = lighten(rgb, .6); c.stroke();
+    const petals = 6 + (rand() > 0.5 ? 1 : 0);
+    for (let i = 0; i < petals; i++) {
+      const angle = (i/petals) * Math.PI * 2 + (rand()-0.5)*0.1;
+      const px = cx + Math.cos(angle)*(13 + rand()*3); const py = (cy-12) + Math.sin(angle)*(13 + rand()*3);
+      c.beginPath(); c.ellipse(px, py, 9, 5.5, angle, 0, Math.PI*2); c.fillStyle = lighten(rgb,.4); c.fill();
+      c.lineWidth = 2; c.strokeStyle = "#fff"; c.stroke();
+    }
+    c.beginPath(); c.arc(cx, cy-12, 7, 0, Math.PI*2); c.fillStyle = "#fff"; c.fill(); c.stroke();
+  }
+  if (level === 5 && !special) {
+    c.beginPath(); c.moveTo(cx, 140); c.lineTo(cx, cy-10);
+    c.lineWidth = 5; c.strokeStyle = lighten(rgb, .7); c.stroke();
+    c.beginPath(); c.arc(cx, cy-16, 32, 0, Math.PI*2); c.fillStyle = lighten(rgb, .25); c.fill();
+    const petals = 8;
+    for (let i = 0; i < petals; i++) {
+      const angle = (i/petals) * Math.PI * 2 + (rand()-0.5)*0.08;
+      c.save(); c.translate(cx, cy-16); c.rotate(angle);
+      c.beginPath(); c.ellipse(0, -18, 8, 16, 0, 0, Math.PI*2);
+      const pg = c.createRadialGradient(0, -18, 2, 0, -18, 16);
+      pg.addColorStop(0, lighten(rgb,.8)); pg.addColorStop(1, css(rgb));
+      c.fillStyle = pg; c.fill(); c.lineWidth = 2; c.strokeStyle = "#fff"; c.stroke();
+      c.restore();
+    }
+    c.beginPath(); c.arc(cx, cy-16, 9, 0, Math.PI*2); c.fillStyle = "#fff"; c.fill();
+    c.lineWidth = 2.5; c.strokeStyle = css(rgb); c.stroke();
+    c.fillStyle = "rgba(255,255,255,.9)";
+    for (let i = 0; i < 16; i++) {
+      const a = rand()*Math.PI*2; const r = 24 + rand()*14;
+      c.beginPath(); c.arc(cx + Math.cos(a)*r, cy-16 + Math.sin(a)*r, 1.2, 0, Math.PI*2); c.fill();
+    }
+  }
+  if (special) {
+    if (answer === "x") drawBlackHole(c, cx, cy - 18);
+    else if (answer === "?") drawComet(c, cx, cy - 18);
+  }
+  c.restore();
+}
+
+const TITLE_FONT = size => `700 ${size}px "Syne","Trebuchet MS","Segoe UI","Arial Black",sans-serif`;
+const SUB_FONT = size => `400 ${size}px "Inter",system-ui,sans-serif`;
+
+function measureCell(c, catIndex) {
+  const cat = CATEGORIES[catIndex];
+  const titleSize = TITLE_MAX_SIZE;
+  c.font = TITLE_FONT(titleSize);
+  const titleLines = wrapText(c, cat.title, TITLE_MAX_W);
+  const titleFirstBaseline = JAR_H + TITLE_GAP + titleSize;
+  let bottom = titleFirstBaseline + (titleLines.length - 1) * (titleSize + TITLE_LINE_GAP) + titleSize * 0.28;
+  const labels = selectedSubLabels(catIndex);
+  let subLines = [], subFirstBaseline = 0;
+  if (labels.length) {
+    const text = "(" + labels.join(", ") + ")";
+    c.font = SUB_FONT(SUB_SIZE);
+    subLines = wrapText(c, text, TITLE_MAX_W);
+    subFirstBaseline = bottom + SUB_GAP + SUB_SIZE;
+    bottom = subFirstBaseline + (subLines.length - 1) * (SUB_SIZE + SUB_LINE_GAP) + SUB_SIZE * 0.28;
+  }
+  return { catIndex, titleSize, titleLines, titleFirstBaseline, subLines, subFirstBaseline, height: bottom + CELL_BOTTOM_PAD };
+}
+const contentTopForPage = pageIndex => pageIndex === 0 ? FIRST_CONTENT_TOP : POSTER_TOP;
+
+function buildLayout() {
+  const measure = document.createElement("canvas").getContext("2d");
+  const cols = state.mode === "quick" ? 5 : 7;
+  const activeList = activeIndices();
+  const cells = activeList.map(i => measureCell(measure, i));
+  const rows = [];
+  const rowsCount = Math.ceil(cells.length / cols);
+  for (let r = 0; r < rowsCount; r++) {
+    const rowCells = cells.slice(r * cols, (r + 1) * cols);
+    let contentH = 0;
+    for (const cell of rowCells) contentH = Math.max(contentH, cell.height);
+    const rowH = Math.max(ROW_MIN_H, contentH);
+    rows.push({ height: rowH, contentHeight: contentH, cells: rowCells });
+  }
+  let total = FIRST_CONTENT_TOP;
+  for (let r = 0; r < rows.length; r++) total += r === rows.length - 1 ? rows[r].contentHeight : rows[r].height;
+  total += FINAL_BOTTOM_PAD;
+  let tier = 1;
+  if (total > SINGLE_MAX_H) tier = 3;
+  else if (total > COMPACT_MAX_H) tier = 2;
+  const pages = tier === 3 ? paginate(rows, cols) : [{ rows, height: total, cols }];
+  return { rows, total, tier, pages, cols };
+}
+function paginate(rows, cols) {
+  const pages = [];
+  let current = { rows: [], height: FIRST_CONTENT_TOP + FOOTER_H, cols };
+  for (const row of rows) {
+    if (current.rows.length && current.height + row.height > SINGLE_MAX_H) {
+      current.height = Math.round(current.height);
+      pages.push(current);
+      current = { rows: [], height: POSTER_TOP + FOOTER_H, cols };
+    }
+    current.rows.push(row);
+    current.height += row.height;
+  }
+  if (current.rows.length) {
+    const lastRow = current.rows[current.rows.length - 1];
+    current.height = Math.round(current.height - lastRow.height + lastRow.contentHeight);
+    pages.push(current);
+  }
+  return pages;
+}
+
+function drawHeader(c, pageIndex, pageCount) {
+  c.textAlign = "left";
+  c.textBaseline = "alphabetic";
+  c.fillStyle = "#fff";
+  const title = "Kozmik Bahçe";
+  const lineW = 300, gap = 26;
+  const availW = PW - lineW - gap - 80;
+  let titleSize = 96;
+  c.font = `800 ${titleSize}px "Syne","Trebuchet MS","Segoe UI","Arial Black",sans-serif`;
+  let tw = c.measureText(title).width;
+  while (tw > availW && titleSize > 52) {
+    titleSize -= 4;
+    c.font = `800 ${titleSize}px "Syne","Trebuchet MS","Segoe UI","Arial Black",sans-serif`;
+    tw = c.measureText(title).width;
+  }
+  const x0 = (PW - lineW - gap - tw) / 2;
+  const base = 140;
+  c.fillRect(x0, base - 5, lineW, 7);
+  c.fillText(title, x0 + lineW + gap, base);
+
+  const name = state.name.trim();
+  if (name) {
+    let size = 60;
+    c.font = `italic 500 ${size}px "Fraunces", Georgia, serif`;
+    while (c.measureText(name).width > lineW - 12 && size > 20) {
+      size -= 2;
+      c.font = `italic 500 ${size}px "Fraunces", Georgia, serif`;
+    }
+    c.textAlign = "center";
+    c.fillText(name, x0 + lineW / 2, base - 18);
+  }
+
+  c.textAlign = "center";
+  c.font = "600 22px 'Inter', sans-serif";
+  c.fillStyle = "#b8aacb";
+  c.fillText("0 Boşluk    ·    1 Filiz    ·    2 Sürgün    ·    3 Parıltı    ·    4 Çiçek    ·    5 Süpernova", PW / 2, 200);
+  c.font = "500 20px 'Inter', sans-serif";
+  c.fillStyle = "#8b7da6";
+  c.fillText("🕳️ = kara delik (kesin sınır)    ·    ☄️ = kuyruklu yıldız (keşfe açık)", PW / 2, 234);
+
+  if (pageCount > 1) {
+    c.textAlign = "right";
+    c.font = "700 22px 'Syne', sans-serif";
+    c.fillStyle = "#7a6f95";
+    c.fillText(`${pageIndex + 1} / ${pageCount}`, PW - 40, 56);
+    if (pageIndex > 0) {
+      c.textAlign = "center";
+      c.font = "500 20px 'Inter', sans-serif";
+      c.fillStyle = "#7a6f95";
+      c.fillText("(devam)", PW / 2, 268);
+    }
+  }
+}
+
+function drawProfileChips(c, mods, y, rgb) {
+  const font = "600 19px 'Inter', sans-serif";
+  c.font = font;
+  const padX = 18, gap = 12, maxW = PW - 140, h = 36;
+  const items = mods.map(m => ({ text: m.name, w: c.measureText(m.name).width + padX * 2 }));
+  const lines = [];
+  let line = [], lineW = 0;
+  for (const it of items) {
+    const add = (line.length ? gap : 0) + it.w;
+    if (line.length && lineW + add > maxW) { lines.push(line); line = []; lineW = 0; }
+    line.push(it);
+    lineW += (line.length > 1 ? gap : 0) + it.w;
+  }
+  if (line.length) lines.push(line);
+  c.textAlign = "center";
+  c.textBaseline = "middle";
+  let cy = y;
+  for (const ln of lines) {
+    const totalW = ln.reduce((s, it) => s + it.w, 0) + gap * (ln.length - 1);
+    let x = PW / 2 - totalW / 2;
+    for (const it of ln) {
+      c.beginPath();
+      roundRect(c, x, cy, it.w, h, h / 2);
+      c.fillStyle = css(rgb);
+      c.fill();
+      c.lineWidth = 2.5;
+      c.strokeStyle = "#fff";
+      c.stroke();
+      c.fillStyle = lum(rgb) > 0.6 ? "#111" : "#fff";
+      c.fillText(it.text, x + it.w / 2, cy + h / 2 + 1);
+      x += it.w + gap;
+    }
+    cy += h + 10;
+  }
+  return Math.max(0, cy - y - (lines.length ? 10 : 0));
+}
+
+function drawDSBar(c, ds, y) {
+  const w = 900, h = 26, x = (PW - w) / 2;
+  c.save();
+  c.textAlign = "center";
+  c.textBaseline = "alphabetic";
+  if (ds.undefinedAxis) {
+    c.beginPath();
+    roundRect(c, x, y, w, h, h / 2);
+    c.fillStyle = "#333";
+    c.fill();
+    c.lineWidth = 3;
+    c.strokeStyle = "#fff";
+    c.stroke();
+    c.fillStyle = "#aaa";
+    c.font = "600 15px 'Inter', sans-serif";
+    c.textBaseline = "middle";
+    c.fillText("bağ ve özerklik ekseni belirsiz", PW / 2, y + h / 2 + 1);
+    c.restore();
+    return;
+  }
+  const rgb = hexToRgb(state.color);
+  c.beginPath();
+  roundRect(c, x, y, w, h, h / 2);
+  c.fillStyle = lighten(rgb, .78);
+  c.fill();
+  c.save();
+  c.beginPath();
+  roundRect(c, x, y, w, h, h / 2);
+  c.clip();
+  c.fillStyle = darken(rgb, .4);
+  c.fillRect(x, y, w * ds.pos / 100, h);
+  c.restore();
+  c.beginPath();
+  roundRect(c, x, y, w, h, h / 2);
+  c.lineWidth = 3;
+  c.strokeStyle = "#fff";
+  c.stroke();
+  const mx = x + w * ds.pos / 100;
+  c.beginPath();
+  c.moveTo(mx, y - 4);
+  c.lineTo(mx, y + h + 4);
+  c.lineWidth = 5;
+  c.strokeStyle = "#fff";
+  c.stroke();
+  c.font = "600 16px 'Inter', sans-serif";
+  c.fillStyle = "#d8c8ec";
+  c.textBaseline = "alphabetic";
+  c.textAlign = "left";
+  c.fillText(`Ortaklaşım (Biz) %${ds.domPct}`, x, y - 10);
+  c.textAlign = "right";
+  c.fillText(`Özerklik (Ben) %${ds.subPct}`, x + w, y - 10);
+  if (ds.label === "switch") {
+    c.textAlign = "center";
+    c.fillStyle = "#d8c8ec";
+    c.font = "600 15px 'Inter', sans-serif";
+    c.fillText("Esnek Denge (Hem Biz Hem Ben)", PW / 2, y - 25);
+  }
+  [[x + 10, darken(rgb, 0.4)], [x + w - 10, lighten(rgb, 0.55)]].forEach(([px, fillColor]) => {
+    c.beginPath();
+    c.arc(px, y + h / 2, 6, 0, Math.PI * 2);
+    c.fillStyle = fillColor;
+    c.fill();
+    c.lineWidth = 2.5;
+    c.strokeStyle = "#fff";
+    c.stroke();
+  });
+  c.restore();
+}
+
+function drawProfileBlock(c, profile) {
+  const top = POSTER_TOP;
+  c.save();
+  c.textAlign = "center";
+  c.textBaseline = "alphabetic";
+
+  if (!profile) {
+    c.save();
+    c.globalAlpha = 0.28;
+    c.translate(PW / 2 - 48, top + 40);
+    drawJar(c, 0, 1, hexToRgb(state.color));
+    c.restore();
+    c.globalAlpha = 1;
+    c.fillStyle = "#7a6f95";
+    c.font = "italic 500 26px 'Fraunces', Georgia, serif";
+    c.fillText("Evrenin henüz bir tohum...", PW / 2, top + 250);
+    c.font = "400 16px 'Inter', sans-serif";
+    c.fillStyle = "#5f5670";
+    c.fillText("Soruları yanıtladıkça arketipin burada açacak.", PW / 2, top + 280);
+    c.restore();
+    return;
+  }
+
+  const rgb = hexToRgb(state.color);
+  const displayName = profile.main.fallback ? "Karma Evren" : profile.main.name;
+  let size = 64;
+  c.font = `800 ${size}px "Syne","Trebuchet MS","Segoe UI","Arial Black",sans-serif`;
+  while (c.measureText(displayName).width > PW - 160 && size > 40) {
+    size -= 2;
+    c.font = `800 ${size}px "Syne","Trebuchet MS","Segoe UI","Arial Black",sans-serif`;
+    tw = c.measureText(displayName).width;
+  }
+  const yMain = top + 48;
+  c.save();
+  c.shadowColor = css(rgb, 0.85);
+  c.shadowBlur = 50;
+  c.fillStyle = css(rgb);
+  c.fillText(displayName, PW / 2, yMain);
+  c.shadowBlur = 25;
+  c.fillText(displayName, PW / 2, yMain);
+  c.shadowBlur = 0;
+  const grad = c.createLinearGradient(0, yMain - size, 0, yMain);
+  grad.addColorStop(0, "#ffffff");
+  grad.addColorStop(1, css(mix(rgb, [255, 255, 255], 0.55)));
+  c.fillStyle = grad;
+  c.fillText(displayName, PW / 2, yMain);
+  c.restore();
+
+  let y = yMain + 36;
+  if (profile.main.motto) {
+    c.font = "italic 500 20px 'Fraunces', Georgia, serif";
+    c.fillStyle = "#e2d9f3";
+    const mottoLines = wrapText(c, `“${profile.main.motto}”`, PW - 160);
+    mottoLines.forEach((line, idx) => {
+      c.fillText(line, PW / 2, y + idx * 26);
+    });
+    y += mottoLines.length * 26 + 12;
+  }
+  if (profile.secondary) {
+    c.font = "500 20px 'Inter', sans-serif";
+    c.fillStyle = "#c7bce0";
+    c.fillText(`Ek eğilim: ${profile.secondary.name}`, PW / 2, y);
+    y += 36;
+  }
+  if (profile.modalities.length) {
+    const chipH = drawProfileChips(c, profile.modalities, y, rgb);
+    y += chipH + 24;
+  } else {
+    y += 16;
+  }
+
+  const summary = buildSummary(profile);
+  c.font = "400 19px 'Inter', sans-serif";
+  c.fillStyle = "#f1ecf9";
+  const summaryMaxW = 760;
+  const summaryX = (PW - summaryMaxW) / 2;
+  const lines = wrapText(c, summary, summaryMaxW);
+  
+  const lineH = 23, descender = 5;
+  const barTop = top + 420;
+  const switchLabelOffset = (profile.ds.label === "switch") ? 30 : 0;
+  const maxBaseline = barTop - descender - switchLabelOffset;
+  const summaryStartY = Math.max(y, top + 150);
+  let maxSummaryLines = 0;
+  if (summaryStartY <= maxBaseline) maxSummaryLines = Math.min(5, Math.floor((maxBaseline - summaryStartY) / lineH) + 1);
+  c.textAlign = "left";
+  let sy = summaryStartY;
+  for (const line of lines.slice(0, maxSummaryLines)) { c.fillText(line, summaryX, sy); sy += lineH; }
+  c.textAlign = "center";
+  drawDSBar(c, profile.ds, barTop);
+  c.restore();
+}
+
+function drawCell(c, cell, cx, top, rgb) {
+  c.save();
+  try {
+    c.translate(cx - 48, top);
+    drawJar(c, cell.catIndex, state.answers[cell.catIndex], rgb);
+  } catch (err) {
+    console.error("Jar draw error", err);
+  } finally {
+    c.restore();
+  }
+  
+  try {
+    c.textAlign = "center"; c.textBaseline = "alphabetic"; c.fillStyle = "#fff";
+    c.font = TITLE_FONT(cell.titleSize);
+    if (cell.titleLines) cell.titleLines.forEach((line, k) => c.fillText(line, cx, top + cell.titleFirstBaseline + k * (cell.titleSize + TITLE_LINE_GAP)));
+    if (cell.subLines && cell.subLines.length) {
+      c.fillStyle = "#a397be"; c.font = SUB_FONT(SUB_SIZE);
+      cell.subLines.forEach((line, k) => c.fillText(line, cx, top + cell.subFirstBaseline + k * (SUB_SIZE + SUB_LINE_GAP)));
+    }
+  } catch (err) {
+    console.error("Text draw error", err);
+  }
+}
+
+function drawPageContent(c, page, pageIndex, pageCount, cols) {
+  cols = cols || 7;
+  const rgb = hexToRgb(state.color);
+  const H = page.height;
+  const t = COSMIC_THEMES[state.theme || "twilight"];
+  c.fillStyle = t.posterBg; c.fillRect(0, 0, PW, H);
+
+  const nebRgb = hexToRgb(t.posterTex);
+  [{x:PW*.15,y:H*.18,r:520,a:.10},{x:PW*.85,y:H*.55,r:620,a:.07},{x:PW*.50,y:H*.92,r:720,a:.06}].forEach(b => {
+    const g = c.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+    g.addColorStop(0, css(nebRgb, b.a)); g.addColorStop(1, css(nebRgb, 0));
+    c.fillStyle = g; c.fillRect(0, 0, PW, H);
+  });
+
+  const prngStars = rng(4242 + pageIndex * 31);
+  for (let i = 0; i < 10; i++) {
+    const px = prngStars() * PW, py = prngStars() * H, sz = 5 + prngStars() * 6;
+    c.save(); c.translate(px, py); c.fillStyle = "rgba(255,255,255,.85)";
+    c.beginPath();
+    for (let k = 0; k < 4; k++) {
+      const a = k * Math.PI / 2;
+      c.lineTo(Math.cos(a) * sz, Math.sin(a) * sz);
+      c.lineTo(Math.cos(a + Math.PI/4) * sz * 0.22, Math.sin(a + Math.PI/4) * sz * 0.22);
+    }
+    c.closePath(); c.fill(); c.restore();
+  }
+
+  c.save();
+  const texRgb = hexToRgb(t.posterTex);
+  const intensity = (state.texIntensity || 35) / 100;
+  c.strokeStyle = css(texRgb, intensity * .8); c.fillStyle = css(texRgb, intensity * 1.2);
+  c.lineWidth = 2;
+  const prng = rng(9999);
+  for (let i = 0; i < 55; i++) {
+    const px = prng() * PW, py = prng() * H;
+    c.beginPath(); c.arc(px, py, prng() * 4 + 1.5, 0, Math.PI * 2); c.fill();
+    if (i % 2 === 0) {
+      const px2 = px + (prng() - .5) * 260, py2 = py + (prng() - .5) * 260;
+      c.beginPath(); c.moveTo(px, py); c.lineTo(px2, py2); c.stroke();
+    }
+  }
+  c.restore();
+
+  drawHeader(c, pageIndex, pageCount);
+
+  const profile = hasAnyAnswer() ? computeProfile(state) : null;
+  if (pageIndex === 0) drawProfileBlock(c, profile);
+
+  const colW = cols === 5 ? 210 : COL_W;
+  let y = contentTopForPage(pageIndex);
+  
+  if (page && page.rows) {
+    for (const row of page.rows) {
+      if (row.cells) {
+        row.cells.forEach((cell, col) => {
+          const cx = PW / 2 + (col - (cols - 1) / 2) * colW;
+          drawCell(c, cell, cx, y, rgb);
+        });
+      }
+      y += row.height;
+    }
+  }
+
+  if (pageIndex === pageCount - 1) {
+    c.strokeStyle = "rgba(255,255,255,.08)"; c.lineWidth = 1;
+    c.beginPath(); c.moveTo(80, H - 60); c.lineTo(PW - 80, H - 60); c.stroke();
+    const now = new Date();
+    const stamp = now.toLocaleDateString("tr-TR", { year:"numeric", month:"short", day:"numeric" });
+    c.textAlign = "left"; c.textBaseline = "alphabetic"; c.fillStyle = "#8b8299"; c.font = "700 17px 'Syne', sans-serif";
+    c.fillText(`KOZMİK BAHÇE · ${stamp}`, 80, H - 32);
+    c.textAlign = "right"; c.font = "500 17px 'Inter', sans-serif"; c.fillStyle = "#8b8299";
+    c.fillText(DISCLAIMER_TEXT, PW - 80, H - 32);
+  }
+}
+
+function renderPage(page, index, count, scale, cols) {
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(PW * scale);
+  canvas.height = Math.max(1, Math.round(page.height * scale));
+  const c = canvas.getContext("2d");
+  c.setTransform(scale, 0, 0, scale, 0, 0);
+  try {
+    drawPageContent(c, page, index, count, cols);
+  } catch(e) { console.error("Page draw error:", e); }
+  return canvas;
+}
+function drawMini(canvas, idx, answer, rgb) {
+  canvas.width = 152; canvas.height = 248;
+  const c = canvas.getContext("2d");
+  c.clearRect(0, 0, 152, 248);
+  c.translate(28, 62);
+  drawJar(c, idx, answer, rgb);
+}
+
+/* ===== UI KURULUM ===== */
+const qWrap = $("questions");
+const minis = [], qEls = [];
+const subUI = CATEGORIES.map(() => null);
+
+const legendEl = $("legend");
+LEGEND_ITEMS.forEach(item => {
+  const li = document.createElement("li");
+  const svg = svgIcon(item.v);
+  li.innerHTML = `<span class="lg-icon">${svg}</span> ${typeof item.v === "number" ? item.v : ""} — ${item.label}`;
+  legendEl.appendChild(li);
+});
+$("pIntroIcons").innerHTML = `<span style="width:20px;height:20px;display:inline-flex;color:var(--x);opacity:.85">${svgIcon("x")}</span><span style="width:20px;height:20px;display:inline-flex;color:var(--q);opacity:.85">${svgIcon("?")}</span>`;
+
+function buildQuestions() {
+  qWrap.innerHTML = "";
+  minis.length = 0; qEls.length = 0;
+  subUI.fill(null);
+
+  const activeList = activeIndices();
+  let lastSection = null;
+  let html = "";
+
+  activeList.forEach((i, displayIdx) => {
+    const cat = CATEGORIES[i];
+    const section = SECTIONS.find(s => i >= s.range[0] && i < s.range[1]);
+    if (section && section !== lastSection) {
+      html += `<div class="section-header"><span>${section.icon} ${section.name}</span></div>`;
+      lastSection = section;
+    }
+    
+    html += `
+      <div class="q" data-index="${i}">
+        <canvas aria-hidden="true"></canvas>
+        <div>
+          <div class="qnum">${displayIdx + 1} / ${activeList.length}</div>
+          <div class="qlabel">${cat.title} <span class="qdesc">(${cat.desc})</span></div>
+          <div class="scale" role="group" aria-label="${cat.title}">
+            ${CHOICES.map(c => `<button type="button" data-val="${c.value}" aria-label="${cat.title} (${cat.desc}): ${c.aria}">${svgIcon(c.value)}</button>`).join('')}
+          </div>
+          <div class="subs" hidden>
+            <div class="subs-title">Alt kırılımlar — sana uyanları seç:</div>
+            <div class="subs-list" role="group" aria-label="${cat.title}: alt kırılımlar">
+              ${SUBCATS[i] ? SUBCATS[i].map(sub => `<button type="button" class="sub-btn" data-sub="${sub.id}" aria-pressed="false">${sub.label}</button>`).join('') : ''}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  qWrap.innerHTML = html;
+
+  qWrap.querySelectorAll(".q").forEach((q) => {
+    const i = +q.dataset.index;
+    const canvas = q.querySelector("canvas");
+    const buttons = Array.from(q.querySelectorAll(".scale button"));
+    const subsWrap = q.querySelector(".subs");
+    let subButtons = {};
+    
+    if (subsWrap) {
+      const subBtns = subsWrap.querySelectorAll(".sub-btn");
+      subBtns.forEach(btn => {
+        subButtons[btn.dataset.sub] = btn;
+        btn.onclick = () => toggleSub(i, btn.dataset.sub);
+      });
+      subUI[i] = { wrap: subsWrap, buttons: subButtons };
+    }
+    
+    buttons.forEach(b => {
+      b.onclick = () => {
+        q.classList.remove("missing");
+        const current = state.answers[i];
+        const val = b.dataset.val;
+        const newAns = (val === "x" || val === "?") ? val : Number(val);
+        const finalAns = current === newAns ? null : newAns;
+        state.answers[i] = finalAns;
+        if (!VISIBLE_ANSWERS.has(finalAns)) state.subs[i] = [];
+        persist(); update();
+
+        // Auto-scroll (Otomatik Kaydırma) Mantığı
+        if (finalAns !== null) {
+          const currentIndex = qEls.indexOf(q);
+          if (currentIndex !== -1 && currentIndex < qEls.length - 1) {
+            const nextQ = qEls[currentIndex + 1];
+            if (nextQ) {
+              setTimeout(() => {
+                nextQ.scrollIntoView({ behavior: "smooth", block: "center" });
+              }, 120);
+            }
+          }
+        }
+      };
+    });
+
+    minis.push({ canvas, buttons });
+    qEls.push(q);
+  });
+  
+  updateStep3Hint();
+}
+
+function updateStep3Hint() {
+  const hint = $("step3Hint");
+  if (state.mode === "quick") {
+    hint.innerHTML = `Hızlı Mod: <strong>10 temel soru</strong> seni bekliyor. Her boyut için tek seçenek işaretle. 🕳️ de geçerli. Seçili seçeneğe tekrar dokunursan temizlersin.`;
+  } else {
+    hint.innerHTML = `Her ilişki boyutu için tek seçenek işaretle. 🕳️ de geçerli. Seçili seçeneğe tekrar dokunursan temizlersin. 1–5 veya ☄️ seçtiğinde alt kırılımlar açılır (zorunlu değil).`;
+  }
+}
+
+const themeGrid = $("themeGrid");
+Object.keys(COSMIC_THEMES).forEach(key => {
+  const t = COSMIC_THEMES[key];
+  const btn = document.createElement("button");
+  btn.type = "button"; btn.className = "theme-btn"; btn.dataset.key = key;
+  btn.innerHTML = `<span class="theme-dot" style="background:${t.posterTex};color:${t.posterTex}"></span><span>${t.name}</span>`;
+  btn.onclick = () => setTheme(key);
+  themeGrid.appendChild(btn);
+});
+const sw = $("swatches");
+PRESETS.forEach(hex => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "sw";
+  b.style.background = hex; b.style.color = hex; b.dataset.hex = hex;
+  b.setAttribute("aria-label", "Renk " + hex);
+  b.onclick = () => setColor(hex);
+  sw.appendChild(b);
+});
+$("texSlider").addEventListener("input", e => { state.texIntensity = +e.target.value; persist(); update(); });
+$("name").value = state.name;
+$("name").addEventListener("input", e => { state.name = e.target.value.slice(0, 24); persist(); update(); });
+
+function setTheme(key) {
+  state.theme = key;
+  const t = COSMIC_THEMES[key];
+  const root = document.documentElement.style;
+  root.setProperty("--bg", t.siteBg); root.setProperty("--card", t.cardBg);
+  root.setProperty("--line", t.line); root.setProperty("--c", t.posterTex);
+  root.setProperty("--on-c", lum(hexToRgb(t.posterTex)) > .6 ? "#111" : "#fff");
+  persist(); update();
+}
+function setColor(hex) { state.color = normalizeHex(hex).toLowerCase(); persist(); update(); }
+
+function switchMode(mode) {
+  if (mode === state.mode) return;
+  state.mode = mode;
+  persist();
+  buildQuestions();
+  update();
+  toast(mode === "quick" ? "Hızlı moda geçildi (10 soru)" : "Derin moda geçildi (28 soru)");
+}
+
+let queued = false;
+function update() { if (queued) return; queued = true; requestAnimationFrame(() => { queued = false; render(); }); }
+
+function toast(msg) {
+  let el = $("toast");
+  if (!el) { el = document.createElement("div"); el.id = "toast"; el.setAttribute("role", "alert"); document.body.appendChild(el); }
+  el.textContent = msg; el.classList.add("show");
+  clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove("show"), 4000);
+}
+
+let statusActive = false;
+function setStatus(msg, active = true) { const el = $("status"); el.textContent = msg; el.hidden = !msg; statusActive = active; }
+function missingIndexes() { return activeIndices().filter(i => state.answers[i] === null); }
+function updateValidationStatus() {
+  if (!statusActive) return;
+  const m = missingIndexes();
+  if (m.length > 0) setStatus(`${m.length} soru eksik. Kaydetmeden önce tüm soruları yanıtlayın.`, true);
+  else setStatus("", false);
+}
+function updateProfileLine() {
+  const el = $("profileLine");
+  if (!el) return;
+  if (!allAnswered()) { el.hidden = true; el.textContent = ""; return; }
+  const profile = computeProfile(state);
+  let text = `Kozmik Arketip: ${profile.main.fallback ? "Karma Evren" : profile.main.name}`;
+  if (profile.modalities.length) text += ` · Odak: ${profile.modalities.map(m => m.name).join(", ")}`;
+  el.textContent = text; el.hidden = false;
+}
+function drawPreview() {
+  try {
+    const layout = buildLayout();
+    const canvas = $("poster");
+    const page = layout.pages[0];
+    canvas.width = PW; canvas.height = Math.max(1, Math.round(page.height));
+    const c = canvas.getContext("2d");
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    drawPageContent(c, page, 0, layout.pages.length, layout.cols);
+    const note = $("tierNote");
+    if (layout.pages.length > 1) { note.hidden = false; note.textContent = `Poster ${layout.pages.length} sayfaya bölündü.`; }
+    else { note.hidden = true; note.textContent = ""; }
+  } catch(e) { console.error("Preview error:", e); }
+}
+
+function burstSparkles() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const cv = document.createElement("canvas");
+  cv.style.cssText = "position:fixed;inset:0;pointer-events:none;z-index:25";
+  cv.width = innerWidth; cv.height = innerHeight;
+  document.body.appendChild(cv);
+  const c = cv.getContext("2d");
+  const hues = [200, 270, 320, 45];
+  const P = Array.from({ length: 70 }, () => ({ x: innerWidth/2 + (Math.random()-.5)*400, y: innerHeight/2 + (Math.random()-.5)*250, vx: (Math.random()-.5)*7, vy: (Math.random()-.5)*7 - 2.5, life: 1, hue: hues[Math.floor(Math.random()*hues.length)], size: 1.5 + Math.random()*2 }));
+  const t0 = performance.now();
+  (function loop(t) {
+    const dt = (t - t0) / 1000;
+    c.clearRect(0, 0, cv.width, cv.height);
+    P.forEach(p => { p.x += p.vx; p.y += p.vy; p.vy += .09; p.life = Math.max(0, 1 - dt/1.2); c.globalAlpha = p.life; c.fillStyle = `hsl(${p.hue},85%,70%)`; c.beginPath(); c.arc(p.x, p.y, p.size, 0, Math.PI*2); c.fill(); });
+    if (dt < 1.2) requestAnimationFrame(loop); else cv.remove();
+  })(t0);
+}
+
+function openRevealModal(profile) {
+  const body = $("modalBody");
+  body.innerHTML = "";
+  const stage = document.createElement("div");
+  stage.className = "reveal-stage";
+  stage.innerHTML = `<div class="reveal-seed"></div>`;
+  body.appendChild(stage);
+  $("modal").hidden = false;
+  setTimeout(() => {
+    const mods = profile.modalities.slice(0, 2).map(m => m.name).join(" · ");
+    body.innerHTML = `
+      <div class="reveal-archetype" style="--c:${state.color}">
+        <div class="reveal-kicker">Kozmik Arketip</div>
+        <h2 class="reveal-name">${profile.main.fallback ? "Karma Evren" : profile.main.name}</h2>
+        ${profile.main.motto ? `<p class="reveal-motto">“${profile.main.motto}”</p>` : ""}
+        ${profile.secondary ? `<p class="reveal-sub">Ek eğilim · ${profile.secondary.name}</p>` : ""}
+        ${mods ? `<p class="reveal-sub">${mods}</p>` : ""}
+        <p class="reveal-summary">${buildSummary(profile)}</p>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);text-align:center">
+          <a href="https://tahabastug-arch.github.io/arzu-kavanozu/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;color:#fff;background:rgba(72,149,239,.15);border:1px solid var(--c);padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px">
+            🏺 Arzu Kavanozu ile Floranı Derinleştir →
+          </a>
+        </div>
+      </div>
+    `;
+    burstSparkles();
+  }, 900);
+}
+
+let _wasComplete = false;
+function render() {
+  const rgb = hexToRgb(state.color);
+  const t = COSMIC_THEMES[state.theme || "twilight"];
+  const root = document.documentElement.style;
+  root.setProperty("--bg", t.siteBg); root.setProperty("--card", t.cardBg);
+  root.setProperty("--line", t.line); root.setProperty("--c", t.posterTex);
+  root.setProperty("--on-c", lum(hexToRgb(t.posterTex)) > .6 ? "#111" : "#fff");
+
+  $("texSlider").value = state.texIntensity;
+  $("texVal").textContent = state.texIntensity + "%";
+  [...themeGrid.children].forEach(b => b.setAttribute("aria-pressed", b.dataset.key === state.theme));
+  [...sw.children].forEach(b => b.setAttribute("aria-pressed", b.dataset.hex === state.color));
+
+  drawMini($("pv1"), 3, 2, rgb);
+  drawMini($("pv2"), 9, 4, rgb);
+  drawMini($("pv3"), 2, 5, rgb);
+  
+  minis.forEach(m => {
+    const q = m.canvas.closest(".q");
+    if (q) {
+      const idx = +q.dataset.index;
+      drawMini(m.canvas, idx, state.answers[idx], rgb);
+      m.buttons.forEach(b => {
+        const raw = b.dataset.val;
+        const v = raw === "x" ? "x" : raw === "?" ? "?" : Number(raw);
+        b.setAttribute("aria-pressed", state.answers[idx] === v);
+      });
+    }
+  });
+  
+  qEls.forEach(q => {
+    const idx = +q.dataset.index;
+    if (subUI[idx]) {
+      subUI[idx].wrap.hidden = !VISIBLE_ANSWERS.has(state.answers[idx]);
+      if (!subUI[idx].wrap.hidden) {
+        const sel = state.subs[idx];
+        for (const id in subUI[idx].buttons) subUI[idx].buttons[id].setAttribute("aria-pressed", sel.includes(id) ? "true" : "false");
+      }
+    }
+  });
+
+  const active = activeIndices();
+  const n = active.filter(i => state.answers[i] !== null).length;
+  $("progress").textContent = `${n} / ${active.length} yanıtlandı${state.mode === "quick" ? " · Hızlı" : ""}`;
+  $("progressFill").style.width = (n / active.length) * 100 + "%";
+
+  const hp = $("headerProgress"), hpText = $("hpText"), hpMode = $("hpMode");
+  if (hp && hpText) {
+    hp.hidden = n === 0;
+    hpText.textContent = `${n} / ${active.length}`;
+    hpMode.textContent = state.mode === "quick" ? "· HIZLI" : "· DERİN";
+    hp.classList.toggle("complete", n === active.length);
+  }
+
+  updateProfileLine();
+  drawPreview();
+  updateValidationStatus();
+
+  const completed = allAnswered();
+  const showRevealBtn = $("showReveal"); if (showRevealBtn) showRevealBtn.hidden = !completed;
+  
+  const clashCta = $("clashCta");
+  if (clashCta) clashCta.hidden = !completed;
+
+  const modeCta = $("modeCta");
+  if (modeCta) {
+    if (state.mode === "quick") {
+      $("modeCtaText").textContent = "Daha doğru sonuç için 28 soruya geç";
+      $("switchMode").textContent = "Derin mod";
+    } else {
+      $("modeCtaText").textContent = "Daha hızlı sonuç için 10 soruya dön";
+      $("switchMode").textContent = "Hızlı mod";
+    }
+  }
+
+  if (completed && !_wasComplete) {
+    _wasComplete = true;
+    burstSparkles();
+    toast(state.mode === "quick" ? "Hızlı keşfin tamamlandı 🌱" : "Kozmik bahçen tamamlandı 🌌");
+    setTimeout(() => {
+      try { openRevealModal(computeProfile(state)); } catch(e) { console.error(e); }
+    }, 800);
+  } else if (!completed) {
+    _wasComplete = false;
+  }
+}
+
+function fileBase() {
+  const slug = state.name.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return (slug ? slug + "-" : "") + "kozmik-bahce";
+}
+function triggerDownload(url, name) {
+  const a = document.createElement("a");
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+}
+async function save() {
+  const missing = missingIndexes();
+  if (missing.length) {
+    toast(`${missing.length} soru eksik.`);
+    setStatus(`${missing.length} soru eksik. Lütfen tüm soruları yanıtlayın.`, true);
+    qEls.forEach(q => q.classList.remove("missing"));
+    const first = qEls.find(q => +q.dataset.index === missing[0]);
+    if (first) {
+      first.classList.add("missing");
+      first.scrollIntoView({ behavior: "smooth", block: "center" });
+      const firstBtn = first.querySelector(".scale button");
+      if (firstBtn) setTimeout(() => firstBtn.focus({ preventScroll: true }), 350);
+    }
+    return;
+  }
+  setStatus("", false);
+  try {
+    const layout = buildLayout();
+    const canvas = renderPage(layout.pages[0], 0, 1, 1, layout.cols);
+    const blob = await new Promise((resolve, reject) => {
+      canvas.toBlob(b => b ? resolve(b) : reject(new Error("PNG oluşturulamadı")), "image/png");
+    });
+    const url = URL.createObjectURL(blob);
+    const fname = fileBase() + ".png";
+    
+    const touch = matchMedia("(pointer: coarse)").matches;
+    if (touch && navigator.share) {
+      try {
+        const file = new File([blob], fname, { type: "image/png" });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file] });
+          setTimeout(() => URL.revokeObjectURL(url), 15000);
+          return;
+        }
+      } catch(e) {}
+    }
+    
+    triggerDownload(url, fname);
+    showSingleModal(url);
+    setTimeout(() => URL.revokeObjectURL(url), 15000);
+  } catch (e) { 
+    console.error(e); 
+    toast("Görsel oluşturulamadı. Lütfen tekrar deneyin."); 
+  }
+}
+
+function showSingleModal(url) {
+  const body = $("modalBody");
+  body.innerHTML = "";
+  const p = document.createElement("p"); p.textContent = "İndirme başlamadıysa resme basılı tutup (veya sağ tıklayıp) “Resmi kaydet” seçeneğini kullanabilirsin.";
+  const img = document.createElement("img"); img.src = url; img.alt = "Kozmik poster";
+  
+  const crossPromo = document.createElement("div");
+  crossPromo.style.cssText = "margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);text-align:center";
+  crossPromo.innerHTML = `
+    <a href="https://tahabastug-arch.github.io/arzu-kavanozu/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;color:#fff;background:rgba(72,149,239,.15);border:1px solid var(--c);padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;box-shadow:0 4px 16px -4px var(--c)">
+      🏺 Arzu Kavanozu ile Floranı Derinleştir →
+    </a>
+  `;
+
+  body.append(p, img, crossPromo);
+  $("modal").hidden = false; $("closeModal").focus();
+}
+
+function openPosterLightbox() {
+  const url = $("poster").toDataURL("image/png");
+  const lb = document.createElement("div");
+  lb.className = "poster-lightbox";
+  lb.innerHTML = `<img src="${url}" alt="Poster">`;
+  lb.addEventListener("click", () => lb.remove());
+  document.body.appendChild(lb);
+}
+
+function calculateClash(p1, p2) {
+  let deadlocks = [];
+  let diffFreq = [];
+  let supernovas = [];
+  let matchScore = 0;
+
+  for (let i = 0; i < N_CATS; i++) {
+    const a = p1[i], b = p2[i];
+    if (a === null || b === null) continue;
+    const aNum = typeof a === "number" ? a : -1;
+    const bNum = typeof b === "number" ? b : -1;
+
+    if ((aNum >= 4 && b === "x") || (bNum >= 4 && a === "x")) {
+      deadlocks.push(i);
+    } 
+    else if ((aNum >= 4 && bNum >= 0 && bNum <= 1) || (bNum >= 4 && aNum >= 0 && aNum <= 1)) {
+      diffFreq.push(i);
+    }
+    else if (aNum >= 4 && bNum >= 4) {
+      supernovas.push(i);
+      matchScore += 10;
+    }
+    else if (a === b) {
+      matchScore += 8;
+    } else {
+      matchScore += 4;
+    }
+  }
+  const maxPossible = N_CATS * 10;
+  let finalScore = Math.round(Math.max(20, Math.min(98, (matchScore / maxPossible) * 100 - deadlocks.length * 8)));
+  return { finalScore, deadlocks, diffFreq, supernovas };
+}
+
+function initClashBanner() {
+  if (!partnerState) return;
+  const slot = $("clashBannerSlot");
+  slot.innerHTML = `
+    <div class="clash-banner">
+      <h3>🪐 Kozmik Çarpışma Aktif!</h3>
+      <p><strong>${partnerState.name || "Partnerin"}</strong> seni ilişki evrenini karşılaştırmaya davet etti. Testi tamamladığında ortak uyum raporun açılacak!</p>
+      <button class="ghost" id="viewClashReport" type="button" style="width:100%;font-weight:700">Çarpışma Raporunu Gör</button>
+    </div>
+  `;
+  $("viewClashReport").onclick = showClashModal;
+}
+
+function showClashModal() {
+  if (!partnerState) return;
+  if (!allAnswered()) {
+    toast("Önce kendi 28 sorunu tamamla!");
+    return;
+  }
+  const clash = calculateClash(state.answers, partnerState.answers);
+  const body = $("modalBody");
+  body.innerHTML = `
+    <div style="text-align:left;padding:4px">
+      <div style="font-family:var(--font-display);font-size:36px;font-weight:800;color:var(--c);text-align:center;margin-bottom:4px">%${clash.finalScore} Yörünge Uyumu</div>
+      <p style="text-align:center;color:#c9c0e0;font-size:15px;margin-bottom:16px">${state.name || "Sen"} ✕ ${partnerState.name || "Partner"}</p>
+      
+      <div style="background:rgba(255,255,255,.03);padding:14px;border-radius:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,.08)">
+        <strong style="color:#4ade80">🌌 Ortak Süpernovalar (${clash.supernovas.length}):</strong>
+        <p style="font-size:14px;color:var(--muted);margin:4px 0 0">${clash.supernovas.map(i => CATEGORIES[i].title).join(", ") || "Ortak zirve noktası bulunamadı."}</p>
+      </div>
+
+      <div style="background:rgba(247,37,133,.06);padding:14px;border-radius:14px;margin-bottom:12px;border:1px solid rgba(247,37,133,.3)">
+        <strong style="color:var(--x)">🕳️ Çıkmaz Sokaklar / Krizler (${clash.deadlocks.length}):</strong>
+        <p style="font-size:14px;color:#ffb3e6;margin:4px 0 0">${clash.deadlocks.map(i => CATEGORIES[i].title).join(", ") || "Kritik kırmızı çizgi çarpışması yok!"}</p>
+      </div>
+    </div>
+  `;
+  $("modal").hidden = false;
+}
+
+$("copyClashLink").onclick = () => {
+  if (!allAnswered()) {
+    toast("Önce tüm soruları yanıtlamalısın!");
+    return;
+  }
+  const param = encodeStateToParam();
+  const url = location.origin + location.pathname + "?c=" + param;
+  navigator.clipboard.writeText(url).then(() => {
+    toast("Karşılaştırma linki kopyalandı! Partnerine gönderebilirsin 🪐");
+  }).catch(() => {
+    prompt("Linki kopyala:", url);
+  });
+};
+
+function showOnboarding() { $("onboarding").hidden = false; }
+function hideOnboarding(mode) {
+  $("onboarding").hidden = true;
+  try { localStorage.setItem(ONBOARD_KEY, "1"); } catch (e) {}
+  if (mode && mode !== state.mode) switchMode(mode);
+}
+$("onboarding").querySelectorAll(".onboard-btn").forEach(btn => {
+  btn.addEventListener("click", () => hideOnboarding(btn.dataset.mode));
+});
+
+if (!localStorage.getItem(ONBOARD_KEY) && !clashParam) { showOnboarding(); }
+
+$("save").onclick = save;
+$("saveBar").onclick = save;
+$("closeModal").onclick = () => { $("modal").hidden = true; };
+$("modal").addEventListener("click", e => { if (e.target.id === "modal") $("modal").hidden = true; });
+$("showReveal").onclick = () => { if (allAnswered()) openRevealModal(computeProfile(state)); };
+$("poster").addEventListener("click", openPosterLightbox);
+$("switchMode").onclick = () => switchMode(state.mode === "quick" ? "deep" : "quick");
+$("reset").onclick = () => {
+  if (!confirm("Tüm kozmik florayı sıfırlayıp baştan başlamak istiyor musunuz?")) return;
+  state.answers = CATEGORIES.map(() => null);
+  state.subs = emptySubs();
+  state.name = "";
+  $("name").value = "";
+  try { localStorage.removeItem(ONBOARD_KEY); } catch(e) {}
+  persist();
+  setStatus("", false);
+  qEls.forEach(q => q.classList.remove("missing"));
+  _wasComplete = false;
+  buildQuestions();
+  update();
+  showOnboarding();
+  scrollTo({ top: 0, behavior: "smooth" });
+};
+
+buildQuestions();
+initClashBanner();
+render();
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => { render(); }).catch(() => {});
+}
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8fe400d3c16c4c8e951ce7dfe00929d6"}'></script>
+<!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
