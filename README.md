@@ -3,7 +3,8 @@
 **Kozmik Bahçe** is a browser-based application that lets you map your relationship expectations, discover your unique relationship archetype, and export your personal cosmic universe as a shareable poster.
 
 🔗 **Live Demo:** [Open Kozmik Bahçe](https://tahabastug-arch.github.io/kozmik-bahce/)  
-🏺 **Sister Project:** [Explore Arzu Kavanozu](https://tahabastug-arch.github.io/arzu-kavanozu/)
+🏺 **Sister Project:** [Explore Arzu Kavanozu](https://tahabastug-arch.github.io/arzu-kavanozu/)  
+🦌 **Sister Project:** [Explore Ne Kadar Gavatsın?](https://tahabastug-arch.github.io/ne-kadar-gavatsin/)
 
 ---
 
@@ -40,6 +41,7 @@ The application does not send user responses to an external server; all data is 
 - 📸 Instagram: [@_tahabastug](https://www.instagram.com/_tahabastug/)
 - 🐦 X: [@TahaBastug35_5](https://x.com/TahaBastug35_5)
 - 🏺 Other Project: [Arzu Kavanozu](https://tahabastug-arch.github.io/arzu-kavanozu/)
+- 🦌 Other Project: [Ne Kadar Gavatsın?](https://tahabastug-arch.github.io/ne-kadar-gavatsin/)
 
 ---
 
@@ -54,7 +56,8 @@ This project is inspired by and adapted from [Kink Jars — LockedTony](https://
 **Kozmik Bahçe**, ilişkiden beklentilerini haritalandıran, sana özel ilişki arketibini hesaplayan ve bunu estetik, paylaşılabilir bir kozmik postere dönüştüren tarayıcı tabanlı bir web uygulamasıdır.
 
 🔗 **Canlı Demo:** [Kozmik Bahçe'yi Keşfet](https://tahabastug-arch.github.io/kozmik-bahce/)  
-🏺 **Kardeş Proje / Keşfet:** [Arzu Kavanozu'nu İncele](https://tahabastug-arch.github.io/arzu-kavanozu/)
+🏺 **Kardeş Proje / Keşfet:** [Arzu Kavanozu'nu İncele](https://tahabastug-arch.github.io/arzu-kavanozu/)  
+🦌 **Kardeş Proje / Keşfet:** [Ne Kadar Gavatsın?'ı Çöz](https://tahabastug-arch.github.io/ne-kadar-gavatsin/)
 
 ## Özellikler
 
@@ -83,6 +86,7 @@ Uygulama, kullanıcı yanıtlarını harici bir sunucuya göndermez; tüm verile
 - 📸 Instagram: [@_tahabastug](https://www.instagram.com/_tahabastug/)
 - 🐦 X: [@TahaBastug35_5](https://x.com/TahaBastug35_5)
 - 🏺 Diğer Projem: [Arzu Kavanozu](https://tahabastug-arch.github.io/arzu-kavanozu/)
+- 🦌 Diğer Projem: [Ne Kadar Gavatsın?](https://tahabastug-arch.github.io/ne-kadar-gavatsin/)
 
 ## Kaynak Proje ve Atıf
 
